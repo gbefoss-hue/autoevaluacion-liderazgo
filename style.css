@@ -1,0 +1,212 @@
+/* Estilos generales y tipografía */
+:root {
+    --color-primary: #1c1c1c;
+    --color-secondary: #f0f0f0;
+    --color-accent: #007BFF;
+    --color-text-dark: #333;
+    --color-text-light: #fff;
+    --color-border: #ddd;
+    /* Nuevos colores para los niveles */
+    --color-critico: #e74c3c; /* Rojo */
+    --color-en-desarrollo: #f1c40f; /* Amarillo */
+    --color-solido: #2ecc71; /* Verde */
+    --color-excelente: #007BFF; /* Azul, según tu nueva indicación */
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    background-color: var(--color-secondary);
+    color: var(--color-text-dark);
+}
+
+/* Cabecera superior fija */
+.header {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+/* Contenedor principal ahora de una sola columna */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.form-container {
+    width: 100%;
+}
+
+/* Contenedor para los resultados de cada dimensión */
+.dimension-results {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    border-left: 5px solid var(--color-accent);
+}
+
+.dimension-results h3 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    color: var(--color-primary);
+}
+
+.dimension-results h4 {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 1rem;
+    color: var(--color-text-dark);
+}
+
+.dimension-results p {
+    margin: 5px 0;
+    line-height: 1.5;
+}
+
+/* Estilos de los niveles con colores */
+.level-critico {
+    border-color: var(--color-critico);
+}
+
+.level-en-desarrollo {
+    border-color: var(--color-en-desarrollo);
+}
+
+.level-solido {
+    border-color: var(--color-solido);
+}
+
+.level-excelente {
+    border-color: var(--color-excelente);
+}
+
+/* Estilos del formulario */
+.category {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.category h2 {
+    color: var(--color-primary);
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+.question {
+    margin-bottom: 20px;
+}
+
+.question p {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.options label {
+    display: block;
+    margin-bottom: 8px;
+    padding: 10px;
+    border-radius: 6px;
+    background-color: var(--color-secondary);
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.options label:hover {
+    background-color: #e9e9e9;
+}
+
+.options input[type="radio"] {
+    margin-right: 10px;
+    accent-color: var(--color-accent);
+}
+
+/* Botones */
+.button-group {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.button-group button {
+    padding: 12px 25px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#calculateScore {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+}
+
+#calculateScore:hover {
+    background-color: #333;
+}
+
+/* Sección de resultados final (MODIFICADA) */
+#final-results-container {
+    margin-top: 40px;
+    padding: 30px;
+    background-color: #fff; /* Fondo blanco */
+    color: var(--color-text-dark); /* Texto oscuro */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra más sutil */
+    border: 1px solid var(--color-border);
+}
+
+#final-results-container h2 {
+    color: var(--color-text-dark); /* Texto oscuro */
+    border-bottom: 2px solid var(--color-border); /* Borde claro */
+    padding-bottom: 15px;
+    text-align: center;
+}
+
+.final-score {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--color-accent);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.dimension-comment {
+    margin-bottom: 25px;
+    padding-left: 15px;
+    border-left: 4px solid var(--color-accent);
+}
+
+.dimension-comment h3 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    color: var(--color-text-dark); /* Color base del texto */
+}
+
+.dimension-comment p {
+    margin: 5px 0;
+    line-height: 1.5;
+}
+
+/* Estos colores específicos sobreescriben el h3 base, lo cual es correcto */
+.final-results-container .dimension-comment.level-critico h3 { color: var(--color-critico); }
+.final-results-container .dimension-comment.level-en-desarrollo h3 { color: var(--color-en-desarrollo); }
+.final-results-container .dimension-comment.level-solido h3 { color: var(--color-solido); }
+.final-results-container .dimension-comment.level-excelente h3 { color: var(--color-excelente); }
