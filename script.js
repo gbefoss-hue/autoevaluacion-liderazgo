@@ -166,59 +166,14 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const globalResultsData = {
-        "Crítico": {
-            "comentario": "El resultado global indica que el estilo de liderazgo todavía se encuentra en una fase incipiente y fragmentada. Esto significa que las prácticas de conducción del equipo aparecen de manera reactiva, sin una coherencia clara entre las distintas dimensiones evaluadas. En este nivel, la comunicación suele ser confusa o poco efectiva, la gestión emocional carece de recursos consistentes y la delegación es limitada, lo que genera sobrecarga en la figura de liderazgo y una baja autonomía en el equipo. La ausencia de métricas, tableros de seguimiento o criterios claros de decisión aumenta la probabilidad de improvisación y de respuestas poco alineadas con los objetivos colectivos. Asimismo, la visión, el sentido ético y el propósito aparecen débiles o poco visibles, dificultando la construcción de confianza y el compromiso a largo plazo. En este rango, el liderazgo puede generar esfuerzos aislados, pero aún no logra sostener una dinámica que inspire ni que potencie a las personas."
-        },
-        "En desarrollo": {
-            "comentario": "El puntaje refleja un liderazgo en transición, donde algunas prácticas comienzan a consolidarse mientras que otras permanecen poco sistemáticas o irregulares. Esto significa que hay momentos de claridad comunicacional y de conexión emocional con el equipo, pero no siempre se sostienen en el tiempo. La delegación puede darse en tareas puntuales, aunque todavía predomina el control cercano y la dificultad de confiar plenamente en la autonomía del equipo. Se observa cierta incorporación de métricas o rutinas de seguimiento, pero sin consistencia, lo que limita la posibilidad de anticipar problemas y tomar decisiones basadas en evidencias. El propósito y los valores empiezan a estar presentes, pero no logran aún orientar de forma clara las prioridades ni ser compartidos como una narrativa común. En este rango, el liderazgo se reconoce en construcción: hay avances que muestran el potencial de un estilo transformacional, aunque todavía conviven con prácticas más tradicionales y centradas en la figura del líder."
-        },
-        "Sólido": {
-            "comentario": "Un resultado en este rango muestra un liderazgo que ha logrado integrar de forma consistente la mayoría de las dimensiones clave. Esto se traduce en una comunicación clara y adaptada, en la capacidad de regular las emociones propias y leer las del equipo, y en prácticas de delegación que generan autonomía y desarrollo en las personas. El liderazgo cuenta con rutinas de seguimiento basadas en métricas y tableros vivos, que permiten anticipar problemas y ajustar la ejecución de manera oportuna. Las decisiones se toman con criterios definidos, considerando distintas perspectivas y evitando caer en patrones automáticos o creencias limitantes. El propósito, la ética y los valores guían la toma de decisiones incluso en contextos de presión, fortaleciendo la confianza y la coherencia en el equipo. Este nivel refleja que el liderazgo es confiable, genera seguridad psicológica y moviliza a las personas hacia resultados compartidos. Aun así, el rango sólido también implica que pueden persistir algunos puntos de mejora para alcanzar una madurez plena en todas las dimensiones, por ejemplo, profundizar la cultura de aprendizaje y de innovación continua."
-        },
-        "Excelente": {
-            "comentario": "El puntaje máximo refleja un liderazgo con un alto grado de madurez transformacional, donde todas las dimensiones se encuentran desarrolladas de manera integral y coherente. Esto significa que el liderazgo no solo comunica con claridad, regula y transmite estabilidad emocional, sino que además logra inspirar, motivar y construir confianza de forma sostenida. La delegación es efectiva, con sucesores preparados y con espacios de desarrollo diseñados para que las personas desplieguen su máximo potencial. La gestión por métricas y tableros está plenamente interiorizada, lo que permite prever obstáculos, anticipar bloqueos y mantener resultados de manera previsible. Las decisiones se caracterizan por la trazabilidad, el pensamiento crítico y la consideración activa de distintas perspectivas, limitando la influencia de sesgos o paradigmas restrictivos. El propósito y la ética no solo están presentes, sino que forman parte de la identidad del equipo y la organización, generando un sentido compartido que trasciende los objetivos inmediatos. En este nivel, el liderazgo se convierte en referente: crea cultura, potencia a otros líderes y actúa como un multiplicador de confianza, innovación y sostenibilidad en el tiempo."
-        }
+        "Crítico": "El resultado global indica que el estilo de liderazgo todavía se encuentra en una fase incipiente y fragmentada. Esto significa que las prácticas de conducción del equipo aparecen de manera reactiva, sin una coherencia clara entre las distintas dimensiones evaluadas. En este nivel, la comunicación suele ser confusa o poco efectiva, la gestión emocional carece de recursos consistentes y la delegación es limitada, lo que genera sobrecarga en la figura de liderazgo y una baja autonomía en el equipo. La ausencia de métricas, tableros de seguimiento o criterios claros de decisión aumenta la probabilidad de improvisación y de respuestas poco alineadas con los objetivos colectivos. Asimismo, la visión, el sentido ético y el propósito aparecen débiles o poco visibles, dificultando la construcción de confianza y el compromiso a largo plazo. En este rango, el liderazgo puede generar esfuerzos aislados, pero aún no logra sostener una dinámica que inspire ni que potencie a las personas.",
+        "En desarrollo": "El puntaje refleja un liderazgo en transición, donde algunas prácticas comienzan a consolidarse mientras que otras permanecen poco sistemáticas o irregulares. Esto significa que hay momentos de claridad comunicacional y de conexión emocional con el equipo, pero no siempre se sostienen en el tiempo. La delegación puede darse en tareas puntuales, aunque todavía predomina el control cercano y la dificultad de confiar plenamente en la autonomía del equipo. Se observa cierta incorporación de métricas o rutinas de seguimiento, pero sin consistencia, lo que limita la posibilidad de anticipar problemas y tomar decisiones basadas en evidencias. El propósito y los valores empiezan a estar presentes, pero no logran aún orientar de forma clara las prioridades ni ser compartidos como una narrativa común. En este rango, el liderazgo se reconoce en construcción: hay avances que muestran el potencial de un estilo transformacional, aunque todavía conviven con prácticas más tradicionales y centradas en la figura del líder.",
+        "Sólido": "Un resultado en este rango muestra un liderazgo que ha logrado integrar de forma consistente la mayoría de las dimensiones clave. Esto se traduce en una comunicación clara y adaptada, en la capacidad de regular las emociones propias y leer las del equipo, y en prácticas de delegación que generan autonomía y desarrollo en las personas. El liderazgo cuenta con rutinas de seguimiento basadas en métricas y tableros vivos, que permiten anticipar problemas y ajustar la ejecución de manera oportuna. Las decisiones se toman con criterios definidos, considerando distintas perspectivas y evitando caer en patrones automáticos o creencias limitantes. El propósito, la ética y los valores guían la toma de decisiones incluso en contextos de presión, fortaleciendo la confianza y la coherencia en el equipo. Este nivel refleja que el liderazgo es confiable, genera seguridad psicológica y moviliza a las personas hacia resultados compartidos. Aun así, el rango sólido también implica que pueden persistir algunos puntos de mejora para alcanzar una madurez plena en todas las dimensiones, por ejemplo, profundizar la cultura de aprendizaje y de innovación continua.",
+        "Excelente": "El puntaje máximo refleja un liderazgo con un alto grado de madurez transformacional, donde todas las dimensiones se encuentran desarrolladas de manera integral y coherente. Esto significa que el liderazgo no solo comunica con claridad, regula y transmite estabilidad emocional, sino que además logra inspirar, motivar y construir confianza de forma sostenida. La delegación es efectiva, con sucesores preparados y con espacios de desarrollo diseñados para que las personas desplieguen su máximo potencial. La gestión por métricas y tableros está plenamente interiorizada, lo que permite prever obstáculos, anticipar bloqueos y mantener resultados de manera previsible. Las decisiones se caracterizan por la trazabilidad, el pensamiento crítico y la consideración activa de distintas perspectivas, limitando la influencia de sesgos o paradigmas restrictivos. El propósito y la ética no solo están presentes, sino que forman parte de la identidad del equipo y la organización, generando un sentido compartido que trasciende los objetivos inmediatos. En este nivel, el liderazgo se convierte en referente: crea cultura, potencia a otros líderes y actúa como un multiplicador de confianza, innovación y sostenibilidad en el tiempo."
     };
-    
+
     const normalizeString = (str) => {
         return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-    };
-
-    const getLevelAndColor = (score) => {
-        if (score >= 3 && score <= 5) {
-            return { nivel: "Crítico", color: '#e74c3c' };
-        } else if (score >= 6 && score <= 8) {
-            return { nivel: "En desarrollo", color: '#f1c40f' };
-        } else if (score >= 9 && score <= 11) {
-            return { nivel: "Sólido", color: '#2ecc71' };
-        } else if (score === 12) {
-            return { nivel: "Excelente", color: '#007BFF' };
-        }
-        return { nivel: "", color: '#cccccc' };
-    };
-
-    const getGlobalLevelAndComment = (totalScore) => {
-        let nivel = "";
-        let rango = "";
-        let comentario = "";
-
-        if (totalScore >= 27 && totalScore <= 47) {
-            nivel = "Crítico";
-            rango = "27–47 puntos";
-        } else if (totalScore >= 48 && totalScore <= 71) {
-            nivel = "En desarrollo";
-            rango = "48–71 puntos";
-        } else if (totalScore >= 72 && totalScore <= 95) {
-            nivel = "Sólido";
-            rango = "72–95 puntos";
-        } else if (totalScore >= 96 && totalScore <= 108) {
-            nivel = "Excelente";
-            rango = "96–108 puntos";
-        }
-        
-        comentario = globalResultsData[nivel].comentario;
-
-        return { nivel, rango, comentario };
     };
 
     const calculatePartialScore = (dimension) => {
@@ -234,7 +189,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         if (answeredQuestions > 0) {
-            const { nivel } = getLevelAndColor(totalScore);
+            const averageScore = totalScore / answeredQuestions;
+            let nivel = "";
+            if (averageScore >= 1 && averageScore <= 1.99) {
+                nivel = "Crítico";
+            } else if (averageScore >= 2 && averageScore <= 2.99) {
+                nivel = "En desarrollo";
+            } else if (averageScore >= 3 && averageScore <= 3.99) {
+                nivel = "Sólido";
+            } else if (averageScore >= 4) {
+                nivel = "Excelente";
+            }
+
             let dimensionName = "";
             switch (dimension) {
                 case "ie": dimensionName = "Inteligencia emocional"; break;
@@ -286,46 +252,125 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     });
+    
+    const generateResultsChart = (scores) => {
+        const ctx = document.getElementById('resultsChart').getContext('2d');
+        const labels = [];
+        const dataPoints = [];
+        const backgroundColors = [];
+        
+        const colors = {
+            critico: 'rgba(231, 76, 60, 0.6)',
+            enDesarrollo: 'rgba(241, 196, 15, 0.6)',
+            solido: 'rgba(46, 204, 113, 0.6)',
+            excelente: 'rgba(0, 123, 255, 0.6)'
+        };
+
+        for (const dimKey in scores) {
+            const score = scores[dimKey].average;
+            const dimensionName = scores[dimKey].name;
+            labels.push(dimensionName);
+            dataPoints.push(score);
+
+            if (score >= 1 && score <= 1.99) {
+                backgroundColors.push(colors.critico);
+            } else if (score >= 2 && score <= 2.99) {
+                backgroundColors.push(colors.enDesarrollo);
+            } else if (score >= 3 && score <= 3.99) {
+                backgroundColors.push(colors.solido);
+            } else if (score >= 4) {
+                backgroundColors.push(colors.excelente);
+            }
+        }
+        
+        const isMobile = window.innerWidth < 768;
+        const axis = isMobile ? 'y' : 'x';
+        const chartType = 'bar';
+
+        new Chart(ctx, {
+            type: chartType,
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Promedio de Resultados',
+                    data: dataPoints,
+                    backgroundColor: backgroundColors,
+                    borderColor: backgroundColors,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                indexAxis: axis,
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    [axis]: { 
+                        ticks: { color: '#333' }
+                    },
+                    [isMobile ? 'x' : 'y']: {
+                        beginAtZero: true,
+                        max: 4,
+                        ticks: { color: '#333', stepSize: 1 }
+                    }
+                },
+                plugins: {
+                    legend: { display: false },
+                    title: {
+                        display: true,
+                        text: 'Resumen Gráfico de Resultados por Dimensión',
+                        font: { size: 18 },
+                        color: '#333'
+                    }
+                }
+            }
+        });
+    };
 
     document.getElementById('calculateScore').addEventListener('click', () => {
         const finalResultsContainer = document.getElementById('final-results-container');
         finalResultsContainer.innerHTML = '';
         let allAnswered = true;
-        let grandTotalScore = 0;
 
         allDimensions.forEach(dim => {
             const questions = document.querySelectorAll(`input[name^="${dim}-"]`);
-            let totalScore = 0;
-            questions.forEach(question => {
-                if (question.checked) {
-                    totalScore += parseInt(question.value);
-                }
-            });
-            grandTotalScore += totalScore;
-            if (questions.length > 0 && document.querySelectorAll(`input[name^="${dim}-"]:checked`).length !== questions.length / 4) {
+            const numQuestionsPerDim = questions.length / 4;
+            if (questions.length > 0 && document.querySelectorAll(`input[name^="${dim}-"]:checked`).length !== numQuestionsPerDim) {
                 allAnswered = false;
             }
         });
 
         if (allAnswered) {
-            
-            // 1. Obtener y mostrar el comentario global
-            const { nivel, rango, comentario } = getGlobalLevelAndComment(grandTotalScore);
-            const normalizedNivelGlobal = normalizeString(nivel).toLowerCase().replace(' ', '-');
-            
-            let globalCommentHtml = `
-                <h2>Resultados Totales</h2>
-                <div class="global-comment level-${normalizedNivelGlobal}">
-                    <h3 class="global-level-title">${nivel} (${rango})</h3>
-                    <p>${comentario}</p>
+            let totalGlobalScore = 0;
+            document.querySelectorAll('input[type="radio"]:checked').forEach(input => {
+                totalGlobalScore += parseInt(input.value);
+            });
+
+            let globalNivel = "";
+            let globalComentario = "";
+            if (totalGlobalScore >= 27 && totalGlobalScore <= 47) {
+                globalNivel = "Crítico";
+            } else if (totalGlobalScore >= 48 && totalGlobalScore <= 71) {
+                globalNivel = "En desarrollo";
+            } else if (totalGlobalScore >= 72 && totalGlobalScore <= 95) {
+                globalNivel = "Sólido";
+            } else if (totalGlobalScore >= 96 && totalGlobalScore <= 108) {
+                globalNivel = "Excelente";
+            }
+            globalComentario = globalResultsData[globalNivel];
+
+            const normalizedGlobalNivel = normalizeString(globalNivel).toLowerCase().replace(' ', '-');
+
+            let finalHtml = `<h2>Resultados Totales</h2>`;
+            finalHtml += `
+                <div class="global-result-comment">
+                    <h3>Tu Perfil de Liderazgo General: <span class="level-${normalizedGlobalNivel}-text">${globalNivel}</span></h3>
+                    <p>${globalComentario}</p>
                 </div>
             `;
+            finalHtml += `<div class="chart-container"><canvas id="resultsChart"></canvas></div>`;
             
-            // 2. Preparar datos para el gráfico y los resultados individuales
-            let finalHtml = '';
-            let chartLabels = [];
-            let chartData = [];
-            let chartColors = [];
+            let finalScores = {};
+            let scoresForChart = {};
 
             allDimensions.forEach(dim => {
                 const questions = document.querySelectorAll(`input[name^="${dim}-"]`);
@@ -335,11 +380,18 @@ document.addEventListener('DOMContentLoaded', () => {
                         totalScore += parseInt(question.value);
                     }
                 });
-
-                const { nivel: dimNivel, color } = getLevelAndColor(totalScore);
+                
+                const numQuestionsPerDim = questions.length / 4;
+                const averageScore = totalScore / numQuestionsPerDim;
+                
+                let nivel = "";
+                if (averageScore >= 1 && averageScore <= 1.99) { nivel = "Crítico"; } 
+                else if (averageScore >= 2 && averageScore <= 2.99) { nivel = "En desarrollo"; } 
+                else if (averageScore >= 3 && averageScore <= 3.99) { nivel = "Sólido"; } 
+                else if (averageScore >= 4) { nivel = "Excelente"; }
                 
                 let dimensionName = "";
-                switch (dim) {
+                 switch (dim) {
                     case "ie": dimensionName = "Inteligencia emocional"; break;
                     case "cr": dimensionName = "Comunicacion y relaciones"; break;
                     case "dd": dimensionName = "Direccion y delegacion"; break;
@@ -351,69 +403,24 @@ document.addEventListener('DOMContentLoaded', () => {
                     case "pe": dimensionName = "Productividad y energia"; break;
                 }
 
-                chartLabels.push(dimensionName);
-                chartData.push(totalScore);
-                chartColors.push(color);
+                finalScores[dim] = { nivel, data: resultsData[dimensionName][nivel], name: dimensionName };
+                scoresForChart[dim] = { average: averageScore, name: dimensionName };
+            });
 
-                const data = resultsData[dimensionName][dimNivel];
-                const normalizedNivel = normalizeString(dimNivel).toLowerCase().replace(' ', '-');
+            for (const dimKey in finalScores) {
+                const { nivel, data, name } = finalScores[dimKey];
+                const normalizedNivel = normalizeString(nivel).toLowerCase().replace(' ', '-');
                 finalHtml += `
                     <div class="dimension-comment level-${normalizedNivel}">
-                        <h3>${dimensionName} - ${dimNivel}</h3>
+                        <h3>${name} - ${nivel}</h3>
                         <p><strong>Comentario:</strong> ${data.comentario}</p>
                         <p><strong>Recomendación:</strong> ${data.recomendacion}</p>
                     </div>
                 `;
-            });
-            
-            // 3. Renderizar el HTML completo (comentario global + gráfico + resultados individuales)
-            finalResultsContainer.innerHTML = globalCommentHtml + `<canvas id="resultsChart"></canvas>` + finalHtml;
-            const ctx = document.getElementById('resultsChart').getContext('2d');
-            new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: chartLabels,
-                    datasets: [{
-                        label: 'Puntaje total',
-                        data: chartData,
-                        backgroundColor: chartColors,
-                        borderColor: chartColors,
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    indexAxis: 'y',
-                    scales: {
-                        x: {
-                            beginAtZero: true,
-                            max: 12,
-                            title: {
-                                display: true,
-                                text: 'Puntaje'
-                            }
-                        },
-                        y: {
-                            title: {
-                                display: true,
-                                text: 'Dimensiones'
-                            }
-                        }
-                    },
-                    plugins: {
-                        legend: {
-                            display: false
-                        },
-                        title: {
-                            display: true,
-                            text: 'Resumen de Resultados por Dimensión',
-                            font: {
-                                size: 18
-                            }
-                        }
-                    }
-                }
-            });
+            }
+
+            finalResultsContainer.innerHTML = finalHtml;
+            generateResultsChart(scoresForChart);
 
         } else {
             alert("Por favor, responde todas las preguntas para ver los resultados totales.");

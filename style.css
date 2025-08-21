@@ -162,20 +162,20 @@ body {
     background-color: #333;
 }
 
-/* Sección de resultados final (MODIFICADA) */
+/* Sección de resultados final */
 #final-results-container {
     margin-top: 40px;
     padding: 30px;
-    background-color: #fff; /* Fondo blanco */
-    color: var(--color-text-dark); /* Texto oscuro */
+    background-color: #fff; 
+    color: var(--color-text-dark); 
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra más sutil */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
     border: 1px solid var(--color-border);
 }
 
 #final-results-container h2 {
-    color: var(--color-text-dark); /* Texto oscuro */
-    border-bottom: 2px solid var(--color-border); /* Borde claro */
+    color: var(--color-text-dark); 
+    border-bottom: 2px solid var(--color-border); 
     padding-bottom: 15px;
     text-align: center;
 }
@@ -197,7 +197,7 @@ body {
 .dimension-comment h3 {
     margin-top: 0;
     font-size: 1.2rem;
-    color: var(--color-text-dark); /* Color base del texto */
+    color: var(--color-text-dark); 
 }
 
 .dimension-comment p {
@@ -205,8 +205,57 @@ body {
     line-height: 1.5;
 }
 
-/* Estos colores específicos sobreescriben el h3 base, lo cual es correcto */
 .final-results-container .dimension-comment.level-critico h3 { color: var(--color-critico); }
 .final-results-container .dimension-comment.level-en-desarrollo h3 { color: var(--color-en-desarrollo); }
 .final-results-container .dimension-comment.level-solido h3 { color: var(--color-solido); }
 .final-results-container .dimension-comment.level-excelente h3 { color: var(--color-excelente); }
+
+/* Reglas para el gráfico */
+.chart-container {
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    height: 400px;
+    margin: 30px auto;
+}
+
+@media (max-width: 768px) {
+    .chart-container {
+        height: 500px;
+    }
+}
+
+/* === NUEVAS REGLAS PARA EL RESULTADO GLOBAL === */
+.global-result-comment {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    border-left: 5px solid #ccc;
+}
+
+.global-result-comment h3 {
+    margin-top: 0;
+    font-size: 1.4rem;
+}
+
+.global-result-comment p {
+    line-height: 1.6;
+}
+
+.global-result-comment .level-critico-text {
+    color: var(--color-critico);
+}
+
+.global-result-comment .level-en-desarrollo-text {
+    color: var(--color-en-desarrollo);
+}
+
+.global-result-comment .level-solido-text {
+    color: var(--color-solido);
+}
+
+.global-result-comment .level-excelente-text {
+    color: var(--color-excelente);
+}
