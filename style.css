@@ -138,6 +138,21 @@ body {
     accent-color: var(--color-accent);
 }
 
+/* === NUEVO: Bloque de Instrucciones === */
+.instructions-box {
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 15px 20px;
+    margin: 25px 0;
+}
+
+.instructions-box p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+
 /* Botones */
 .button-group {
     text-align: center;
@@ -225,7 +240,7 @@ body {
     }
 }
 
-/* === NUEVAS REGLAS PARA EL RESULTADO GLOBAL === */
+/* Reglas para el resultado global */
 .global-result-comment {
     margin-top: 20px;
     margin-bottom: 30px;
