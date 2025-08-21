@@ -138,7 +138,6 @@ body {
     accent-color: var(--color-accent);
 }
 
-/* === NUEVO: Bloque de Instrucciones === */
 .instructions-box {
     background-color: #f8f9fa;
     border: 1px solid #e9ecef;
