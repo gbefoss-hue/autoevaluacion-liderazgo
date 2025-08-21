@@ -1,305 +1,303 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // ===== NUEVO: Toda la data de preguntas ahora vive aquí =====
     const questionsData = [
-        {
-            dimension: "Inteligencia emocional",
-            idPrefix: "ie",
-            questions: [
-                {
-                    title: "P1 · Autoconciencia emocional",
-                    options: [
-                        { text: "Reacciono sin pensar y no puedo decir qué emoción siento.", value: 1 },
-                        { text: "A veces noto lo que siento, pero tarde o con palabras vagas.", value: 2 },
-                        { text: "Antes de responder, nombro la emoción y hago una breve pausa.", value: 3 },
-                        { text: "Digo en voz alta lo que siento y mi plan para responder; invito a otros a hacerlo y anoto las situaciones que me activan.", value: 4 }
-                    ]
-                },
-                {
-                    title: "P2 · Autorregulación y foco",
-                    options: [
-                        { text: "Respondo impulsivamente y me quedo dándole vueltas al tema.", value: 1 },
-                        { text: "A veces pauso, pero tardo horas en retomar el foco.", value: 2 },
-                        { text: "Uso una pausa corta, elijo una respuesta acorde y vuelvo a la prioridad en ≤30’.", value: 3 },
-                        { text: "Mantengo la calma en crisis y ayudo al equipo a reencuadrar y seguir en minutos.", value: 4 }
-                    ]
-                },
-                {
-                    title: "P3 · Conciencia social y lectura de clima",
-                    options: [
-                        { text: "No noto señales de ánimo o tensión en el equipo.", value: 1 },
-                        { text: "Detecto señales cuando el problema ya apareció.", value: 2 },
-                        { text: "Noto a tiempo el clima y ajusto mi forma de interactuar.", value: 3 },
-                        { text: "Anticipo tensiones y las desactivo con intervenciones breves y oportunas.", value: 4 }
-                    ]
-                }
-            ]
-        },
-        {
-            dimension: "Comunicación y relaciones",
-            idPrefix: "cr",
-            questions: [
-                {
-                    title: "P1 · Comunicación empática y adaptación",
-                    options: [
-                        { text: "Supongo lo que la otra persona quiere decir y no presto atención a gestos o tono.", value: 1 },
-                        { text: "A veces repito lo que entendí, pero de forma esporádica; ajusto poco mi forma de comunicar.", value: 2 },
-                        { text: "Escucho y confirmo con mis palabras lo que entendí; adapto mi tono, ritmo y canal según la otra persona.", value: 3 },
-                        { text: "Diseño mis mensajes pensando en cada audiencia y reviso que realmente se hayan comprendido.", value: 4 }
-                    ]
-                },
-                {
-                    title: "P2 · Espacios 1:1 efectivos",
-                    // ===== TEXTOS ACTUALIZADOS EN ESTA PREGUNTA =====
-                    options: [
-                        { text: "No hago instancias de 1:1 con las personas o solo en crisis; no dejo registro.", value: 1 },
-                        { text: "Tengo espacios 1:1 con las personas de forma irregular y doy más consejos que guía.", value: 2 },
-                        { text: "Tengo una frecuencia fija de reuniones 1:1, hago preguntas de coaching y acuerdo tareas con responsables y fechas.", value: 3 },
-                        { text: "Sostengo un calendario estable, sigo acuerdos y pido feedback sobre la utilidad de los espacios 1:1.", value: 4 }
-                    ]
-                },
-                {
-                    title: "P3 · Feedback constructivo",
-                    options: [
-                        { text: "Evito dar feedback duro.", value: 1 },
-                        { text: "Doy feedback esporádico y general.", value: 2 },
-                        { text: "Doy feedback específico y respetuoso.", value: 3 },
-                        { text: "El feedback fluye y se da de forma continua, oportuna y efectiva.", value: 4 }
-                    ]
-                }
-            ]
-        },
-        {
-            dimension: "Dirección y delegación",
-            idPrefix: "dd",
-            questions: [
-                {
-                    title: "P1 · Visibilidad y propósito",
-                    options: [
-                        { text: "Las tareas no tienen propósito; los roles están mezclados.", value: 1 },
-                        { text: "Doy visibilidad parcial; el propósito no siempre es claro.", value: 2 },
-                        { text: "Delegas responsabilidades con acuerdos claros, límites y autonomía.", value: 3 },
-                        { text: "Delegas decisiones relevantes con límites claros, monitoreas el avance y formas a tus sucesores.", value: 4 }
-                    ]
-                },
-                {
-                    title: "P2 · Claridad y confianza",
-                    options: [
-                        { text: "Hago micro-management; me encargo de todo para que salga bien.", value: 1 },
-                        { text: "Controlo mucho las tareas que delego; no dejo autonomía.", value: 2 },
-                        { text: "Confías en tu equipo para resolver, delegas sin tanto control y dejas espacio para el error y el aprendizaje.", value: 3 },
-                        { text: "El equipo funciona sin tu presencia, porque delegas con autonomía, defines planes de desarrollo y empoderas a las personas.", value: 4 }
-                    ]
-                },
-                {
-                    title: "P3 · Desarrollo del equipo",
-                    options: [
-                        { text: "No me encargo de desarrollar a nadie; todos crecen solos.", value: 1 },
-                        { text: "El desarrollo es esporádico o solo en los casos que me lo piden.", value: 2 },
-                        { text: "Promueves el desarrollo con planes y conversaciones activas para crecer a las personas.", value: 3 },
-                        { text: "Escalas el desarrollo de líderes y talentos; tu equipo es una máquina de formación.", value: 4 }
-                    ]
-                }
-            ]
-        },
-		{
-            dimension: "Ejecución y resultados",
-            idPrefix: "er",
-            questions: [
-                {
-                    title: "P1 · Métricas y visibilidad",
-                    options: [
-                        { text: "No uso métricas ni un plan de trabajo visible; los problemas se detectan tarde.", value: 1 },
-                        { text: "Hay métricas parciales y un plan visible, pero incompleto.", value: 2 },
-                        { text: "Las métricas guían decisiones y el plan de trabajo se mantiene actualizado.", value: 3 },
-                        { text: "Anticipo bloqueos con alertas tempranas y la operación es estable y previsible.", value: 4 }
-                    ]
-                },
-                {
-                    title: "P2 · Planificación y seguimiento",
-                    options: [
-                        { text: "La ejecución es reactiva; la carga de trabajo no está balanceada.", value: 1 },
-                        { text: "Se avanza con sobresaltos y poca previsión.", value: 2 },
-                        { text: "Los problemas se mitigan a tiempo y la operación es estable.", value: 3 },
-                        { text: "Los rituales de seguimiento están estandarizados y el sistema sostiene velocidad y calidad.", value: 4 }
-                    ]
-                },
-                {
-                    title: "P3 · Visibilidad y alineación",
-                    options: [
-                        { text: "La visibilidad limitada dificulta la priorización.", value: 1 },
-                        { text: "Hay transparencia, pero la información no se usa para alinear.", value: 2 },
-                        { text: "La información es visible y se usa para alinear expectativas.", value: 3 },
-                        { text: "Comparto los avances de forma visual y tengo un sistema de reporte simple.", value: 4 }
-                    ]
-                }
-            ]
-        },
-		{
-            dimension: "Pensamiento crítico y decisiones",
-            idPrefix: "pc",
-            questions: [
-                {
-                    title: "P1 · Criterios y sesgos",
-                    options: [
-                        { text: "Decido por intuición y no reviso mis supuestos.", value: 1 },
-                        { text: "Uso algunos datos pero de forma irregular.", value: 2 },
-                        { text: "Revisas tus criterios de forma consistente y detectas sesgos.", value: 3 },
-                        { text: "Tus decisiones son trazables y están basadas en datos y evidencia.", value: 4 }
-                    ]
-                },
-                {
-                    title: "P2 · Perspectivas y revisión",
-                    options: [
-                        { text: "Hago pocas preguntas desafiantes y no busco otras perspectivas.", value: 1 },
-                        { text: "Pido una revisión externa tarde; los supuestos se cuestionan poco.", value: 2 },
-                        { text: "Buscas distintas perspectivas antes de decidir y las usas para fundamentar.", value: 3 },
-                        { text: "Fomentas el pensamiento crítico en el equipo y validas decisiones con pares.", value: 4 }
-                    ]
-                },
-                {
-                    title: "P3 · Comunicación de decisiones",
-                    options: [
-                        { text: "Comunico decisiones sin explicar el “por qué” o los criterios.", value: 1 },
-                        { text: "La comunicación es confusa; no todos la comprenden.", value: 2 },
-                        { text: "Comunico decisiones de forma clara, con el “por qué” y los criterios.", value: 3 },
-                        { text: "Formalizas un esquema estándar para las decisiones y enseñas al equipo a usarlo.", value: 4 }
-                    ]
-                }
-            ]
-        },
-		{
-            dimension: "Aprendizaje e innovación",
-            idPrefix: "ai",
-            questions: [
-                {
-                    title: "P1 · Experimentación y error",
-                    options: [
-                        { text: "No hay espacios para probar ideas; el error se vive como amenaza.", value: 1 },
-                        { text: "Hay intentos de prueba, pero llegan tarde o no dejan registro.", value: 2 },
-                        { text: "Realizas pruebas rápidas, registras aprendizajes y aplicas las mejoras.", value: 3 },
-                        { text: "Existe una cultura de experimentación y mejora continua, donde el error se aprovecha.", value: 4 }
-                    ]
-                },
-                {
-                    title: "P2 · Retrospectivas y feedback",
-                    options: [
-                        { text: "No generas revisiones al cierre de etapas o proyectos; los errores se repiten.", value: 1 },
-                        { text: "Haces revisiones informales, pero no quedan acciones claras.", value: 2 },
-                        { text: "Las revisiones generan acciones con responsables y fechas.", value: 3 },
-                        { text: "Las revisiones son parte de la rutina y siempre salen acciones, se da seguimiento y todos participan.", value: 4 }
-                    ]
-                },
-                {
-                    title: "P3 · Repositorio de lecciones",
-                    options: [
-                        { text: "No registro aprendizajes.", value: 1 },
-                        { text: "Anoto lecciones sueltas que nadie usa.", value: 2 },
-                        { text: "Tengo un repositorio simple que el equipo consulta.", value: 3 },
-                        { text: "Mantengo un repositorio que guía decisiones, formación y está al día.", value: 4 }
-                    ]
-                }
-            ]
-        },
-		{
-            dimension: "Propósito y ética",
-            idPrefix: "pye",
-            questions: [
-                {
-                    title: "P1 · Visión e impacto",
-                    options: [
-                        { text: "No tengo una visión ni definición de éxito.", value: 1 },
-                        { text: "Tengo una visión genérica y rara vez la conecto con impacto.", value: 2 },
-                        { text: "Formulas una visión simple, muestras cómo luce el éxito y ligas tareas con el impacto.", value: 3 },
-                        { text: "Sostienes una narrativa clara, con métricas y celebraciones acordes al propósito.", value: 4 }
-                    ]
-                },
-                {
-                    title: "P2 · Coherencia y valores",
-                    options: [
-                        { text: "Las decisiones no están alineadas a valores; se dice una cosa y se hace otra.", value: 1 },
-                        { text: "La coherencia entre lo que se dice y se hace es baja.", value: 2 },
-                        { text: "Tus decisiones suelen estar alineadas con valores definidos y los criterios éticos son explícitos.", value: 3 },
-                        { text: "Los valores y criterios éticos se hacen visibles en la práctica diaria; son parte de la cultura.", value: 4 }
-                    ]
-                },
-                {
-                    title: "P3 · Liderazgo ético",
-                    options: [
-                        { text: "Ignoro dilemas éticos o no los hago visibles.", value: 1 },
-                        { text: "Explicito los criterios éticos solo si me los piden.", value: 2 },
-                        { text: "Registro los criterios éticos que aparecen en las decisiones para que queden como guía.", value: 3 },
-                        { text: "Promueves que otros expliciten sus decisiones a partir de criterios éticos, elevando el estándar colectivo.", value: 4 }
-                    ]
-                }
-            ]
-        },
-		{
-            dimension: "Cambio y mejora",
-            idPrefix: "cm",
-            questions: [
-                {
-                    title: "P1 · Gestión del cambio",
-                    options: [
-                        { text: "Los cambios se llevan de forma improvisada; sin mapa ni roles definidos.", value: 1 },
-                        { text: "Existe algún nivel de planificación, pero es parcial o poco claro.", value: 2 },
-                        { text: "Hay un mapa de cambio visible, con roles claros y resistencias previstas.", value: 3 },
-                        { text: "El proceso de cambio está consolidado y las resistencias se gestionan con naturalidad.", value: 4 }
-                    ]
-                },
-                {
-                    title: "P2 · Gestión de resistencias y adopción",
-                    options: [
-                        { text: "Ignoro las resistencias o las enfrento tarde.", value: 1 },
-                        { text: "Se atienden las resistencias tarde y sin medidas concretas.", value: 2 },
-                        { text: "Anticipas las resistencias y defines acciones para apoyar la adopción.", value: 3 },
-                        { text: "Ajustas el plan por grupos con métricas y datos de adopción.", value: 4 }
-                    ]
-                },
-                {
-                    title: "P3 · Rutinas de seguimiento",
-                    options: [
-                        { text: "No existen rutinas de seguimiento, lo que genera retrocesos frecuentes.", value: 1 },
-                        { text: "Las rutinas de seguimiento son intermitentes.", value: 2 },
-                        { text: "Mantienes rutinas de seguimiento sostenidas que permiten mantener la adopción de las nuevas prácticas.", value: 3 },
-                        { text: "El cambio se convierte en parte de la cultura, porque instalas rituales que aseguran la mejora continua.", value: 4 }
-                    ]
-                }
-            ]
-        },
-		{
-            dimension: "Productividad y energía",
-            idPrefix: "pe",
-            questions: [
-                {
-                    title: "P1 · Prioridades y bloques de foco",
-                    options: [
-                        { text: "Me dejo llevar por urgencias y pierdo el foco.", value: 1 },
-                        { text: "Intento organizarme, pero los bloques de foco son irregulares.", value: 2 },
-                        { text: "Protejo bloques de foco y trabajo en prioridades claras.", value: 3 },
-                        { text: "Organizo mi agenda por prioridades y la reviso semanalmente.", value: 4 }
-                    ]
-                },
-                {
-                    title: "P2 · Decir no y delegar bajo valor",
-                    options: [
-                        { text: "Digo sí a todo y me saturo.", value: 1 },
-                        { text: "A veces digo que no y delego poco.", value: 2 },
-                        { text: "Digo que no a lo que no aporta y delego tareas de bajo valor.", value: 3 },
-                        { text: "Mantengo organizada mi lista de tareas y proyectos según prioridades, y delego de forma estable y efectiva lo que no requiere mi foco principal.", value: 4 }
-                    ]
-                },
-                {
-                    title: "P3 · Higiene de energía y recuperación",
-                    options: [
-                        { text: "Descuido mi energía y no practico autocuidado.", value: 1 },
-                        { text: "Cuido mi energía de forma irregular.", value: 2 },
-                        { text: "Tengo rutinas básicas de descanso y recuperación.", value: 3 },
-                        { text: "Mantengo hábitos estables de energía y promuevo prácticas saludables también en el equipo.", value: 4 }
-                    ]
-                }
-            ]
-        }
+    {
+        "dimension": "Inteligencia emocional",
+        "idPrefix": "ie",
+        "questions": [
+            {
+                "title": "Cuando siento una emoción intensa, mi comportamiento habitual es:",
+                "options": [
+                    { "text": "Reacciono sin pensar y no puedo decir qué emoción siento.", "value": 1 },
+                    { "text": "A veces noto lo que siento, pero tarde o con palabras vagas.", "value": 2 },
+                    { "text": "Antes de responder, nombro la emoción y hago una breve pausa.", "value": 3 },
+                    { "text": "Digo en voz alta lo que siento y mi plan para responder; invito a otros a hacerlo y anoto las situaciones que me activan.", "value": 4 }
+                ]
+            },
+            {
+                "title": "En situaciones de alta presión o estrés, mi capacidad de respuesta es:",
+                "options": [
+                    { "text": "Respondo impulsivamente y me quedo dándole vueltas al tema.", "value": 1 },
+                    { "text": "A veces pauso, pero tardo horas en retomar el foco.", "value": 2 },
+                    { "text": "Uso una pausa corta, elijo una respuesta acorde y vuelvo a la prioridad en ≤30’.", "value": 3 },
+                    { "text": "Mantengo la calma en crisis y ayudo al equipo a reencuadrar y seguir en minutos.", "value": 4 }
+                ]
+            },
+            {
+                "title": "Al interactuar con mi equipo, mi habilidad para percibir el clima emocional es:",
+                "options": [
+                    { "text": "No noto señales de ánimo o tensión en el equipo.", "value": 1 },
+                    { "text": "Detecto señales cuando el problema ya apareció.", "value": 2 },
+                    { "text": "Noto a tiempo el clima y ajusto mi forma de interactuar.", "value": 3 },
+                    { "text": "Anticipo tensiones y las desactivo con intervenciones breves y oportunas.", "value": 4 }
+                ]
+            }
+        ]
+    },
+    {
+        "dimension": "Comunicación y relaciones",
+        "idPrefix": "cr",
+        "questions": [
+            {
+                "title": "En una conversación, mi estilo de escucha y comunicación se parece más a:",
+                "options": [
+                    { "text": "Supongo lo que la otra persona quiere decir y no presto atención a gestos o tono.", "value": 1 },
+                    { "text": "A veces repito lo que entendí, pero de forma esporádica; ajusto poco mi forma de comunicar.", "value": 2 },
+                    { "text": "Escucho y confirmo con mis palabras lo que entendí; adapto mi tono, ritmo y canal según la otra persona.", "value": 3 },
+                    { "text": "Diseño mis mensajes pensando en cada audiencia y reviso que realmente se hayan comprendido.", "value": 4 }
+                ]
+            },
+            {
+                "title": "Mis conversaciones 1:1 con los miembros de mi equipo se caracterizan porque:",
+                "options": [
+                    { "text": "No hago instancias de 1:1 con las personas o solo en crisis; no dejo registro.", "value": 1 },
+                    { "text": "Tengo espacios 1:1 con las personas de forma irregular y doy más consejos que guía.", "value": 2 },
+                    { "text": "Tengo una frecuencia fija de reuniones 1:1, hago preguntas de coaching y acuerdo tareas con responsables y fechas.", "value": 3 },
+                    { "text": "Sostengo un calendario estable, sigo acuerdos y pido feedback sobre la utilidad de los espacios 1:1.", "value": 4 }
+                ]
+            },
+            {
+                "title": "A la hora de dar feedback, mi enfoque principal es:",
+                "options": [
+                    { "text": "Evito dar feedback duro.", "value": 1 },
+                    { "text": "Doy feedback esporádico y general.", "value": 2 },
+                    { "text": "Doy feedback específico y respetuoso.", "value": 3 },
+                    { "text": "El feedback fluye y se da de forma continua, oportuna y efectiva.", "value": 4 }
+                ]
+            }
+        ]
+    },
+    {
+        "dimension": "Dirección y delegación",
+        "idPrefix": "dd",
+        "questions": [
+            {
+                "title": "Al asignar tareas y responsabilidades, mi método se basa en:",
+                "options": [
+                    { "text": "Las tareas no tienen propósito; los roles están mezclados.", "value": 1 },
+                    { "text": "Doy visibilidad parcial; el propósito no siempre es claro.", "value": 2 },
+                    { "text": "Delegas responsabilidades con acuerdos claros, límites y autonomía.", "value": 3 },
+                    { "text": "Delegas decisiones relevantes con límites claros, monitoreas el avance y formas a tus sucesores.", "value": 4 }
+                ]
+            },
+            {
+                "title": "Mi nivel de confianza en la autonomía del equipo se refleja en que:",
+                "options": [
+                    { "text": "Hago micro-management; me encargo de todo para que salga bien.", "value": 1 },
+                    { "text": "Controlo mucho las tareas que delego; no dejo autonomía.", "value": 2 },
+                    { "text": "Confías en tu equipo para resolver, delegas sin tanto control y dejas espacio para el error y el aprendizaje.", "value": 3 },
+                    { "text": "El equipo funciona sin tu presencia, porque delegas con autonomía, defines planes de desarrollo y empoderas a las personas.", "value": 4 }
+                ]
+            },
+            {
+                "title": "Con respecto al crecimiento de las personas de mi equipo, yo:",
+                "options": [
+                    { "text": "No me encargo de desarrollar a nadie; todos crecen solos.", "value": 1 },
+                    { "text": "El desarrollo es esporádico o solo en los casos que me lo piden.", "value": 2 },
+                    { "text": "Promueves el desarrollo con planes y conversaciones activas para crecer a las personas.", "value": 3 },
+                    { "text": "Escalas el desarrollo de líderes y talentos; tu equipo es una máquina de formación.", "value": 4 }
+                ]
+            }
+        ]
+    },
+    {
+        "dimension": "Ejecución y resultados",
+        "idPrefix": "er",
+        "questions": [
+            {
+                "title": "Para gestionar el trabajo del equipo, mi sistema se basa en:",
+                "options": [
+                    { "text": "No uso métricas ni un plan de trabajo visible; los problemas se detectan tarde.", "value": 1 },
+                    { "text": "Hay métricas parciales y un plan visible, pero incompleto.", "value": 2 },
+                    { "text": "Las métricas guían decisiones y el plan de trabajo se mantiene actualizado.", "value": 3 },
+                    { "text": "Anticipo bloqueos con alertas tempranas y la operación es estable y previsible.", "value": 4 }
+                ]
+            },
+            {
+                "title": "El seguimiento del trabajo y la gestión de problemas en mi equipo son:",
+                "options": [
+                    { "text": "La ejecución es reactiva; la carga de trabajo no está balanceada.", "value": 1 },
+                    { "text": "Se avanza con sobresaltos y poca previsión.", "value": 2 },
+                    { "text": "Los problemas se mitigan a tiempo y la operación es estable.", "value": 3 },
+                    { "text": "Los rituales de seguimiento están estandarizados y el sistema sostiene velocidad y calidad.", "value": 4 }
+                ]
+            },
+            {
+                "title": "La visibilidad del trabajo y la alineación con los stakeholders es:",
+                "options": [
+                    { "text": "La visibilidad limitada dificulta la priorización.", "value": 1 },
+                    { "text": "Hay transparencia, pero la información no se usa para alinear.", "value": 2 },
+                    { "text": "La información es visible y se usa para alinear expectativas.", "value": 3 },
+                    { "text": "Comparto los avances de forma visual y tengo un sistema de reporte simple.", "value": 4 }
+                ]
+            }
+        ]
+    },
+    {
+        "dimension": "Pensamiento crítico y decisiones",
+        "idPrefix": "pc",
+        "questions": [
+            {
+                "title": "Mi proceso para tomar decisiones importantes se basa principalmente en:",
+                "options": [
+                    { "text": "Decido por intuición y no reviso mis supuestos.", "value": 1 },
+                    { "text": "Uso algunos datos pero de forma irregular.", "value": 2 },
+                    { "text": "Revisas tus criterios de forma consistente y detectas sesgos.", "value": 3 },
+                    { "text": "Tus decisiones son trazables y están basadas en datos y evidencia.", "value": 4 }
+                ]
+            },
+            {
+                "title": "A la hora de analizar un problema, mi enfoque es:",
+                "options": [
+                    { "text": "Hago pocas preguntas desafiantes y no busco otras perspectivas.", "value": 1 },
+                    { "text": "Pido una revisión externa tarde; los supuestos se cuestionan poco.", "value": 2 },
+                    { "text": "Buscas distintas perspectivas antes de decidir y las usas para fundamentar.", "value": 3 },
+                    { "text": "Fomentas el pensamiento crítico en el equipo y validas decisiones con pares.", "value": 4 }
+                ]
+            },
+            {
+                "title": "Cuando comunico una decisión al equipo, habitualmente:",
+                "options": [
+                    { "text": "Comunico decisiones sin explicar el “por qué” o los criterios.", "value": 1 },
+                    { "text": "La comunicación es confusa; no todos la comprenden.", "value": 2 },
+                    { "text": "Comunico decisiones de forma clara, con el “por qué” y los criterios.", "value": 3 },
+                    { "text": "Formalizas un esquema estándar para las decisiones y enseñas al equipo a usarlo.", "value": 4 }
+                ]
+            }
+        ]
+    },
+    {
+        "dimension": "Aprendizaje e innovación",
+        "idPrefix": "ai",
+        "questions": [
+            {
+                "title": "La cultura de mi equipo frente al error y la experimentación es:",
+                "options": [
+                    { "text": "No hay espacios para probar ideas; el error se vive como amenaza.", "value": 1 },
+                    { "text": "Hay intentos de prueba, pero llegan tarde o no dejan registro.", "value": 2 },
+                    { "text": "Realizas pruebas rápidas, registras aprendizajes y aplicas las mejoras.", "value": 3 },
+                    { "text": "Existe una cultura de experimentación y mejora continua, donde el error se aprovecha.", "value": 4 }
+                ]
+            },
+            {
+                "title": "Al finalizar proyectos o etapas importantes, mi equipo:",
+                "options": [
+                    { "text": "No generas revisiones al cierre de etapas o proyectos; los errores se repiten.", "value": 1 },
+                    { "text": "Haces revisiones informales, pero no quedan acciones claras.", "value": 2 },
+                    { "text": "Las revisiones generan acciones con responsables y fechas.", "value": 3 },
+                    { "text": "Las revisiones son parte de la rutina y siempre salen acciones, se da seguimiento y todos participan.", "value": 4 }
+                ]
+            },
+            {
+                "title": "El conocimiento y las lecciones aprendidas en mi equipo se gestionan así:",
+                "options": [
+                    { "text": "No registro aprendizajes.", "value": 1 },
+                    { "text": "Anoto lecciones sueltas que nadie usa.", "value": 2 },
+                    { "text": "Tengo un repositorio simple que el equipo consulta.", "value": 3 },
+                    { "text": "Mantengo un repositorio que guía decisiones, formación y está al día.", "value": 4 }
+                ]
+            }
+        ]
+    },
+    {
+        "dimension": "Propósito y ética",
+        "idPrefix": "pye",
+        "questions": [
+            {
+                "title": "La visión y el propósito que guían a mi equipo son:",
+                "options": [
+                    { "text": "No tengo una visión ni definición de éxito.", "value": 1 },
+                    { "text": "Tengo una visión genérica y rara vez la conecto con impacto.", "value": 2 },
+                    { "text": "Formulas una visión simple, muestras cómo luce el éxito y ligas tareas con el impacto.", "value": 3 },
+                    { "text": "Sostienes una narrativa clara, con métricas y celebraciones acordes al propósito.", "value": 4 }
+                ]
+            },
+            {
+                "title": "La coherencia entre los valores que se declaran y las acciones diarias es:",
+                "options": [
+                    { "text": "Las decisiones no están alineadas a valores; se dice una cosa y se hace otra.", "value": 1 },
+                    { "text": "La coherencia entre lo que se dice y se hace es baja.", "value": 2 },
+                    { "text": "Tus decisiones suelen estar alineadas con valores definidos y los criterios éticos son explícitos.", "value": 3 },
+                    { "text": "Los valores y criterios éticos se hacen visibles en la práctica diaria; son parte de la cultura.", "value": 4 }
+                ]
+            },
+            {
+                "title": "Frente a dilemas éticos, mi forma de actuar es:",
+                "options": [
+                    { "text": "Ignoro dilemas éticos o no los hago visibles.", "value": 1 },
+                    { "text": "Explicito los criterios éticos solo si me los piden.", "value": 2 },
+                    { "text": "Registro los criterios éticos que aparecen en las decisiones para que queden como guía.", "value": 3 },
+                    { "text": "Promueves que otros expliciten sus decisiones a partir de criterios éticos, elevando el estándar colectivo.", "value": 4 }
+                ]
+            }
+        ]
+    },
+    {
+        "dimension": "Cambio y mejora",
+        "idPrefix": "cm",
+        "questions": [
+            {
+                "title": "Cuando mi equipo enfrenta un cambio importante, el proceso es:",
+                "options": [
+                    { "text": "Los cambios se llevan de forma improvisada; sin mapa ni roles definidos.", "value": 1 },
+                    { "text": "Existe algún nivel de planificación, pero es parcial o poco claro.", "value": 2 },
+                    { "text": "Hay un mapa de cambio visible, con roles claros y resistencias previstas.", "value": 3 },
+                    { "text": "El proceso de cambio está consolidado y las resistencias se gestionan con naturalidad.", "value": 4 }
+                ]
+            },
+            {
+                "title": "Mi gestión de las resistencias y el apoyo a la adopción del cambio es:",
+                "options": [
+                    { "text": "Ignoro las resistencias o las enfrento tarde.", "value": 1 },
+                    { "text": "Se atienden las resistencias tarde y sin medidas concretas.", "value": 2 },
+                    { "text": "Anticipas las resistencias y defines acciones para apoyar la adopción.", "value": 3 },
+                    { "text": "Ajustas el plan por grupos con métricas y datos de adopción.", "value": 4 }
+                ]
+            },
+            {
+                "title": "Para asegurar que un cambio se sostenga en el tiempo, mi enfoque es:",
+                "options": [
+                    { "text": "No existen rutinas de seguimiento, lo que genera retrocesos frecuentes.", "value": 1 },
+                    { "text": "Las rutinas de seguimiento son intermitentes.", "value": 2 },
+                    { "text": "Mantienes rutinas de seguimiento sostenidas que permiten mantener la adopción de las nuevas prácticas.", "value": 3 },
+                    { "text": "El cambio se convierte en parte de la cultura, porque instalas rituales que aseguran la mejora continua.", "value": 4 }
+                ]
+            }
+        ]
+    },
+    {
+        "dimension": "Productividad y energía",
+        "idPrefix": "pe",
+        "questions": [
+            {
+                "title": "Mi sistema para priorizar y mantener el foco en lo importante es:",
+                "options": [
+                    { "text": "Me dejo llevar por urgencias y pierdo el foco.", "value": 1 },
+                    { "text": "Intento organizarme, pero los bloques de foco son irregulares.", "value": 2 },
+                    { "text": "Protejo bloques de foco y trabajo en prioridades claras.", "value": 3 },
+                    { "text": "Organizo mi agenda por prioridades y la reviso semanalmente.", "value": 4 }
+                ]
+            },
+            {
+                "title": "Mi habilidad para gestionar mi carga de trabajo y evitar la sobrecarga es:",
+                "options": [
+                    { "text": "Digo sí a todo y me saturo.", "value": 1 },
+                    { "text": "A veces digo que no y delego poco.", "value": 2 },
+                    { "text": "Digo que no a lo que no aporta y delego tareas de bajo valor.", "value": 3 },
+                    { "text": "Mantengo organizada mi lista de tareas y proyectos según prioridades, y delego de forma estable y efectiva lo que no requiere mi foco principal.", "value": 4 }
+                ]
+            },
+            {
+                "title": "Mis hábitos para cuidar mi energía y recuperarme del estrés son:",
+                "options": [
+                    { "text": "Descuido mi energía y no practico autocuidado.", "value": 1 },
+                    { "text": "Cuido mi energía de forma irregular.", "value": 2 },
+                    { "text": "Tengo rutinas básicas de descanso y recuperación.", "value": 3 },
+                    { "text": "Mantengo hábitos estables de energía y promuevo prácticas saludables también en el equipo.", "value": 4 }
+                ]
+            }
+        ]
+    }
     ];
 
     const resultsData = {
@@ -444,7 +442,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "En desarrollo": {
                 "comentario": "Tienes una visión, pero es genérica o no se conecta con el día a día. Hablas de valores, pero las decisiones del equipo no siempre son coherentes con ellos. Esto puede generar una brecha entre lo que se dice y lo que se hace, erosionando la confianza.",
                 "recomendacion": "Haz que los valores sean prácticos. Antes de tomar una decisión importante, pregúntate en voz alta frente al equipo: '¿Cómo se alinea esta opción con nuestro valor de 'poner al cliente primero'?'. Este simple acto de reflexión pública modela el comportamiento y hace que los valores cobren vida.",
-                "preguntas": "¿Qué decisión reciente no fue coherente con los valores que pregonas? ¿Qué aprendiste de ello? ¿Cómo puedes involucrar al equipo en la definición o revisión de la visión y los valores? ¿Qué historia real puedes contar para ilustrar uno de los valores de tu equipo en acción?"
+                "preguntas": "¿Qué decisión recente no fue coherente con los valores que pregonas? ¿Qué aprendiste de ello? ¿Cómo puedes involucrar al equipo en la definición o revisión de la visión y los valores? ¿Qué historia real puedes contar para ilustrar uno de los valores de tu equipo en acción?"
             },
             "Sólido": {
                 "comentario": "Has logrado construir y comunicar una visión clara que da propósito al trabajo del equipo. Tus decisiones y las del equipo están alineadas con un conjunto de valores compartidos y un marco ético sólido. Esto genera un alto nivel de confianza, compromiso y coherencia.",
