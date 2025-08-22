@@ -7,10 +7,9 @@
     --color-text-light: #fff;
     --color-border: #ddd;
     /* Nuevos colores para los niveles */
-    --color-critico: #e74c3c; /* Rojo */
-    --color-en-desarrollo: #f1c40f; /* Amarillo */
+    --color-inicial: #e74c3c; /* Rojo */
+    --color-en-progreso: #f1c40f; /* Amarillo */
     --color-solido: #2ecc71; /* Verde */
-    --color-excelente: #007BFF; /* Azul, según tu nueva indicación */
 }
 
 body {
@@ -38,6 +37,31 @@ body {
     font-size: 1.5rem;
 }
 
+#progress-container {
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: right;
+}
+
+/* Estilos para la barra de progreso */
+.progress-bar-container {
+    width: 150px;
+    height: 6px;
+    background-color: #555;
+    border-radius: 3px;
+    margin-top: 5px;
+    overflow: hidden;
+}
+
+#progress-bar {
+    width: 0%;
+    height: 100%;
+    background-color: var(--color-solido);
+    border-radius: 3px;
+    transition: width 0.3s ease-in-out;
+}
+
+
 /* Contenedor principal ahora de una sola columna */
 .container {
     max-width: 900px;
@@ -59,39 +83,37 @@ body {
     border-left: 5px solid var(--color-accent);
 }
 
-.dimension-results h3 {
-    margin-top: 0;
-    font-size: 1.2rem;
-    color: var(--color-primary);
-}
-
-.dimension-results h4 {
-    margin-top: 10px;
-    margin-bottom: 5px;
-    font-size: 1rem;
-    color: var(--color-text-dark);
-}
-
 .dimension-results p {
-    margin: 5px 0;
-    line-height: 1.5;
+    margin: 10px 0;
+    line-height: 1.6;
 }
+
+/* --- NUEVO: Estilos para el título del resultado parcial --- */
+.result-level-title .level-text-inicial {
+    color: var(--color-inicial);
+    font-weight: bold;
+}
+.result-level-title .level-text-en-progreso {
+    color: var(--color-en-progreso);
+    font-weight: bold;
+}
+.result-level-title .level-text-solido {
+    color: var(--color-solido);
+    font-weight: bold;
+}
+
 
 /* Estilos de los niveles con colores */
-.level-critico {
-    border-color: var(--color-critico);
+.level-inicial {
+    border-color: var(--color-inicial);
 }
 
-.level-en-desarrollo {
-    border-color: var(--color-en-desarrollo);
+.level-en-progreso {
+    border-color: var(--color-en-progreso);
 }
 
 .level-solido {
     border-color: var(--color-solido);
-}
-
-.level-excelente {
-    border-color: var(--color-excelente);
 }
 
 /* Estilos del formulario */
@@ -108,6 +130,14 @@ body {
     border-bottom: 1px solid var(--color-border);
     padding-bottom: 10px;
     margin-top: 0;
+}
+
+.dimension-explanation {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 25px;
+    padding-left: 15px;
+    border-left: 3px solid var(--color-border);
 }
 
 .question {
@@ -194,14 +224,6 @@ body {
     text-align: center;
 }
 
-.final-score {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: var(--color-accent);
-    text-align: center;
-    margin-bottom: 20px;
-}
-
 .dimension-comment {
     margin-bottom: 25px;
     padding-left: 15px;
@@ -215,14 +237,14 @@ body {
 }
 
 .dimension-comment p {
-    margin: 5px 0;
-    line-height: 1.5;
+    margin: 10px 0;
+    line-height: 1.6;
 }
 
-.final-results-container .dimension-comment.level-critico h3 { color: var(--color-critico); }
-.final-results-container .dimension-comment.level-en-desarrollo h3 { color: var(--color-en-desarrollo); }
-.final-results-container .dimension-comment.level-solido h3 { color: var(--color-solido); }
-.final-results-container .dimension-comment.level-excelente h3 { color: var(--color-excelente); }
+#final-results-container .dimension-comment.level-inicial h3 { color: var(--color-inicial); }
+#final-results-container .dimension-comment.level-en-progreso h3 { color: var(--color-en-progreso); }
+#final-results-container .dimension-comment.level-solido h3 { color: var(--color-solido); }
+
 
 /* Reglas para el gráfico */
 .chart-container {
@@ -258,18 +280,14 @@ body {
     line-height: 1.6;
 }
 
-.global-result-comment .level-critico-text {
-    color: var(--color-critico);
+.global-result-comment .level-inicial-text {
+    color: var(--color-inicial);
 }
 
 .global-result-comment .level-en-desarrollo-text {
-    color: var(--color-en-desarrollo);
+    color: var(--color-en-progreso);
 }
 
 .global-result-comment .level-solido-text {
     color: var(--color-solido);
-}
-
-.global-result-comment .level-excelente-text {
-    color: var(--color-excelente);
 }

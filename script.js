@@ -1,536 +1,404 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     const questionsData = [
-    {
-        "dimension": "Inteligencia emocional",
-        "idPrefix": "ie",
-        "questions": [
-            {
-                "title": "Cuando noto que me tenso en una conversación:",
-                "options": [
-                    { "text": "Sigo el hilo y suelo revisar qué sentí después.", "value": 1 },
-                    { "text": "A veces identifico lo que siento, aunque me llega tarde o con palabras generales.", "value": 2 },
-                    { "text": "Antes de responder, ubico la emoción con una pausa breve.", "value": 3 },
-                    { "text": "Pongo en palabras cómo estoy y cómo voy a seguir; invito a otros a hacerlo y registro desencadenantes personales.", "value": 4 }
-                ]
-            },
-            {
-                "title": "Si aparece un desacuerdo fuerte mientras trabajo:",
-                "options": [
-                    { "text": "Respondo en el momento y me quedo analizando el asunto antes de retomar.", "value": 1 },
-                    { "text": "Hago alguna pausa, pero tardo en volver a lo que estaba haciendo", "value": 2 },
-                    { "text": "Pausa corta, respuesta acorde y regreso a lo importante en al poco tiempo.", "value": 3 },
-                    { "text": "Mantengo calma y encuadro para que el equipo avance sin problemas", "value": 4 }
-                ]
-            },
-            {
-                "title": "En reuniones de equipo, respecto al clima del grupo:",
-                "options": [
-                    { "text": "Sigo la agenda y priorizo los temas; si noto algo del clima, lo reviso después para no desvirtuar la reunión.", "value": 1 },
-                    { "text": "Empiezo a notar el clima cuando aparecen pausas largas o intercambios repetidos.", "value": 2 },
-                    { "text": "Si percibo señales, ajusto algo en mi intervención (por ejemplo, el tiempo o el tono).", "value": 3 },
-                    { "text": "Anticipo las señales y sugiero cambios (como una pausa o continuar en otro momento)", "value": 4 }
-                ]
-            }
-        ]
-    },
-    {
-        "dimension": "Comunicación y relaciones",
-        "idPrefix": "cr",
-        "questions": [
-            {
-                "title": "Al comunicarme con otras personas:",
-                "options": [
-                    { "text": "Interpreto el mensaje por su contenido y no me dejo llevar por las interpretaciones de tono o gestos.", "value": 1 },
-                    { "text": "A veces confirmo lo que entendí y ajusto algo mi forma de comunicar.", "value": 2 },
-                    { "text": "Escucho y parafraseo; adapto tono, ritmo y canal según la persona.", "value": 3 },
-                    { "text": "Planifico el mensaje según la audiencia y confirmo comprensión real.", "value": 4 }
-                ]
-            },
-            {
-                "title": "Cuando converso por separado con alguien del equipo:",
-                "options": [
-                    { "text": "Tengo conversaciones individuales cuando aparece un tema urgente y sin registro.", "value": 1 },
-                    { "text": "Realizo conversaciones individuales de forma irregular y doy más consejos que guía.", "value": 2 },
-                    { "text": "Sostengo encuentros individuales con frecuencia fija, pregunto y acordamos tareas con responsables y fechas.", "value": 3 },
-                    { "text": "Mantengo agenda estable, doy seguimiento y pido retroalimentación sobre la utilidad de estos espacios.", "value": 4 }
-                ]
-            },
-            {
-                "title": "En el día a día, sobre devoluciones y reconocimiento:",
-                "options": [
-                    { "text": "La retroalimentación aparece poco y el reconocimiento es general.", "value": 1 },
-                    { "text": "Doy devoluciones esporádicas y a veces poco específicas.", "value": 2 },
-                    { "text": "Brindo retroalimentación clara y a tiempo y reconozco conductas y logros concretos.", "value": 3 },
-                    { "text": "Facilito que la retroalimentación sea habitual entre pares y se notan mejoras derivadas.", "value": 4 }
-                ]
-            }
-        ]
-    },
-    {
-        "dimension": "Dirección y delegación",
-        "idPrefix": "dd",
-        "questions": [
-            {
-                "title": "Cuando encargo una tarea a otra persona:",
-                "options": [
-                    { "text": "Asigno tareas con poca información sobre propósito o resultados esperados.", "value": 1 },
-                    { "text": "Comparto algunos elementos (motivo o recursos), pero quedan vacíos.", "value": 2 },
-                    { "text": "Acordamos por qué, éxito esperado, recursos y límites, por escrito.", "value": 3 },
-                    { "text": "Definimos éxito con métricas y revisamos acuerdos en hitos.", "value": 4 }
-                ]
-            },
-            {
-                "title": "Al repartir responsabilidades y decisiones:",
-                "options": [
-                    { "text": "Concentro decisiones, lo que enlentece el trabajo.", "value": 1 },
-                    { "text": "Delego tareas acotadas y superviso de cerca.", "value": 2 },
-                    { "text": "Delego responsabilidades con autonomía y puntos de revisión acordados.", "value": 3 },
-                    { "text": "Delego decisiones relevantes con indicadores claros y desarrollo reemplazos.", "value": 4 }
-                ]
-            },
-            {
-                "title": "Sobre el crecimiento del equipo y posibles reemplazos:",
-                "options": [
-                    { "text": "El crecimiento y los reemplazos quedan sin plan.", "value": 1 },
-                    { "text": "Ofrezco apoyo puntual, sin metas ni seguimiento.", "value": 2 },
-                    { "text": "Cada persona tiene objetivos de desarrollo y revisiones periódicas.", "value": 3 },
-                    { "text": "Identifico sucesores y activo oportunidades concretas.", "value": 4 }
-                ]
-            }
-        ]
-    },
-    {
-        "dimension": "Ejecución y resultados",
-        "idPrefix": "er",
-        "questions": [
-            {
-                "title": "Al evaluar cómo va el equipo:",
-                "options": [
-                    { "text": "Evalúo mi aporte por tareas propias.", "value": 1 },
-                    { "text": "Miro resultados del equipo de forma ocasional.", "value": 2 },
-                    { "text": "Uso métricas del equipo para decidir y priorizar.", "value": 3 },
-                    { "text": "Contamos con indicadores compartidos y ajustamos con los datos.", "value": 4 }
-                ]
-            },
-            {
-                "title": "Al organizar el trabajo y las fechas:",
-                "options": [
-                    { "text": "Trabajo sin un plan o calendario claro.", "value": 1 },
-                    { "text": "El plan existe, pero parcial o desactualizado; responsabilidades poco claras.", "value": 2 },
-                    { "text": "Plan claro y actualizado con responsables y fechas; revisión periódica.", "value": 3 },
-                    { "text": "Plan que se actualiza, muestra alertas a tiempo y permite ajustar antes de que impacte.", "value": 4 }
-                ]
-            },
-            {
-                "title": "Frente a posibles trabas o riesgos:",
-                "options": [
-                    { "text": "Los riesgos se hacen visibles cuando ya impactaron.", "value": 1 },
-                    { "text": "Registro los riesgos al cierre.", "value": 2 },
-                    { "text": "Listado a tiempo y mitigaciones con responsables.", "value": 3 },
-                    { "text": "Anticipo bloqueos y activo contingencias antes del impacto.", "value": 4 }
-                ]
-            }
-        ]
-    },
-    {
-        "dimension": "Pensamiento crítico y decisiones",
-        "idPrefix": "pc",
-        "questions": [
-            {
-                "title": "Antes de decidir, sobre mis supuestos:",
-                "options": [
-                    { "text": "Sostengo supuestos sin cuestionarlos.", "value": 1 },
-                    { "text": "Reviso supuestos tras errores y consulto a veces.", "value": 2 },
-                    { "text": "Cuestiono supuestos antes de decidir e invito miradas críticas.", "value": 3 },
-                    { "text": "Revisión por pares y ajuste de paradigmas cuando los hechos lo exigen.", "value": 4 }
-                ]
-            },
-            {
-                "title": "Cuando necesito entender mejor un tema:",
-                "options": [
-                    { "text": "Formulo preguntas cerradas o doy respuestas por otros.", "value": 1 },
-                    { "text": "Uso algunas preguntas abiertas, sin continuidad.", "value": 2 },
-                    { "text": "Planteo preguntas que abren opciones mejores.", "value": 3 },
-                    { "text": "El equipo pregunta mejor y piensa con criterio propio.", "value": 4 }
-                ]
-            },
-            {
-                "title": "Al tomar decisiones importantes:",
-                "options": [
-                    { "text": "Decido por intuición sin criterios explícitos.", "value": 1 },
-                    { "text": "Uso algunos datos con criterios confusos.", "value": 2 },
-                    { "text": "Defino criterios simples y uso datos relevantes trazables.", "value": 3 },
-                    { "text": "Dejo constancia breve de criterios y reviso la decisión después.", "value": 4 }
-                ]
-            }
-        ]
-    },
-    {
-        "dimension": "Aprendizaje e innovación",
-        "idPrefix": "ai",
-        "questions": [
-            {
-                "title": "Cuando surge una idea nueva:",
-                "options": [
-                    { "text": "Las ideas nuevas rara vez pasan a prueba.", "value": 1 },
-                    { "text": "Se prueban algunas tarde o de modo improvisado y casi no se registra.", "value": 2 },
-                    { "text": "Probamos cambios chicos rápido, con expectativa escrita y resultado observado.", "value": 3 },
-                    { "text": "Exploramos ideas de forma habitual con criterios claros y compartimos resultados.", "value": 4 }
-                ]
-            },
-            {
-                "title": "Al cerrar una etapa o proyecto:",
-                "options": [
-                    { "text": "Cierre sin revisión; errores se repiten.", "value": 1 },
-                    { "text": "Conversaciones informales sin pasos definidos.", "value": 2 },
-                    { "text": "Revisión breve al cierre con al menos dos mejoras con responsables y fechas.", "value": 3 },
-                    { "text": "Revisión como rutina: salen acciones y se hace seguimiento.", "value": 4 }
-                ]
-            },
-            {
-                "title": "Para registrar lo que aprendemos:",
-                "options": [
-                    { "text": "Aprendizajes sin registro.", "value": 1 },
-                    { "text": "Notas sueltas de poco uso.", "value": 2 },
-                    { "text": "Repositorio simple que el equipo consulta.", "value": 3 },
-                    { "text": "Repositorio actualizado que usamos para decidir y para formar.", "value": 4 }
-                ]
-            }
-        ]
-    },
-    {
-        "dimension": "Propósito y ética",
-        "idPrefix": "pye",
-        "questions": [
-            {
-                "title": "Sobre hacia dónde vamos y qué es éxito:",
-                "options": [
-                    { "text": "La visión y el éxito no están definidos.", "value": 1 },
-                    { "text": "La visión existe de forma general y a veces conecta con impacto.", "value": 2 },
-                    { "text": "Visión simple, éxito definido y tareas vinculadas al impacto.", "value": 3 },
-                    { "text": "Relato claro y constante con métricas y celebraciones alineadas.", "value": 4 }
-                ]
-            },
-            {
-                "title": "Respecto a cumplir lo que digo:",
-                "options": [
-                    { "text": "Compromisos y acciones no siempre coinciden.", "value": 1 },
-                    { "text": "Cumplo lo esencial y explico poco.", "value": 2 },
-                    { "text": "Actúo según valores y aviso a tiempo ante desvíos.", "value": 3 },
-                    { "text": "Decisiones visibles y coherentes que sostienen confianza.", "value": 4 }
-                ]
-            },
-            {
-                "title": "Al explicar por qué decido:",
-                "options": [
-                    { "text": "Criterios y consecuencias no se explicitan.", "value": 1 },
-                    { "text": "Explico criterios parcialmente y si lo piden.", "value": 2 },
-                    { "text": "Declaro criterios e impactos y dejo una síntesis.", "value": 3 },
-                    { "text": "Abro la discusión ética y cuido la coherencia en el tiempo.", "value": 4 }
-                ]
-            }
-        ]
-    },
-    {
-        "dimension": "Cambio y mejora",
-        "idPrefix": "cm",
-        "questions": [
-            {
-                "title": "Cuando impulsamos un cambio:",
-                "options": [
-                    { "text": "Cambios sin plan ni roles definidos.", "value": 1 },
-                    { "text": "Plan parcial con roles difusos.", "value": 2 },
-                    { "text": "Plan visible con hitos y roles claros.", "value": 3 },
-                    { "text": "Plan integrado con dependencias y cronograma acordado.", "value": 4 }
-                ]
-            },
-            {
-                "title": "Ante dudas o resistencias al cambio:",
-                "options": [
-                    { "text": "Las resistencias se atienden poco o de forma frontal.", "value": 1 },
-                    { "text": "Se abordan tarde y sin datos.", "value": 2 },
-                    { "text": "Se anticipan y se definen apoyos para adoptar.", "value": 3 },
-                    { "text": "Ajustes por grupos con señales de adopción.", "value": 4 }
-                ]
-            },
-            {
-                "title": "Luego de iniciar un cambio:",
-                "options": [
-                    { "text": "Seguimiento esporádico y el cambio retrocede.", "value": 1 },
-                    { "text": "Seguimiento intermitente.", "value": 2 },
-                    { "text": "Rutinas de seguimiento y soporte estable.", "value": 3 },
-                    { "text": "Rituales que aseguran mejora continua.", "value": 4 }
-                ]
-            }
-        ]
-    },
-    {
-        "dimension": "Productividad y energía",
-        "idPrefix": "pe",
-        "questions": [
-            {
-                "title": "Para organizar mi día:",
-                "options": [
-                    { "text": "El día lo marcan las urgencias.", "value": 1 },
-                    { "text": "Intento ordenar, pero los bloques de foco varían.", "value": 2 },
-                    { "text": "Protejo bloques y trabajo por prioridades.", "value": 3 },
-                    { "text": "Agenda por prioridades revisada semanalmente.", "value": 4 }
-                ]
-            },
-            {
-                "title": "Cuando me piden más trabajo:",
-                "options": [
-                    { "text": "Tiendo a aceptar más de lo que puedo.", "value": 1 },
-                    { "text": "A veces digo no y delego poco.", "value": 2 },
-                    { "text": "Digo no a lo de bajo valor y delego tareas acordes.", "value": 3 },
-                    { "text": "Lista y proyectos ordenados por prioridad; delegación sostenida.", "value": 4 }
-                ]
-            },
-            {
-                "title": "Sobre cuidar mi energía:",
-                "options": [
-                    { "text": "La energía personal queda al margen.", "value": 1 },
-                    { "text": "El cuidado es intermitente.", "value": 2 },
-                    { "text": "Rutinas básicas de descanso y recuperación.", "value": 3 },
-                    { "text": "Hábitos estables y promoción de prácticas saludables en el equipo.", "value": 4 }
-                ]
-            }
-        ]
-    }
+        {
+            "dimension": "Mentalidad de líder",
+            "explanation": "Es el paso de “resolver yo” a “lograr resultados a través de otros”.",
+            "idPrefix": "p1",
+            "questions": [
+                {
+                    "title": "Al empezar la semana, respecto a prioridades del equipo:",
+                    "options": [
+                        { "text": "Ordeno mis tareas personales.", "value": 1 },
+                        { "text": "Comparto lo que haré y pido avances cuando surja.", "value": 2 },
+                        { "text": "Acordamos prioridades breves con responsables y fechas.", "value": 3 },
+                        { "text": "Acordamos prioridades y dejamos un resumen compartido para todos.", "value": 4 }
+                    ]
+                },
+                {
+                    "title": "Ante un error del equipo:",
+                    "options": [
+                        { "text": "Resuelvo yo para que no se frene.", "value": 1 },
+                        { "text": "Pido que corrijan y aviso si vuelve a pasar.", "value": 2 },
+                        { "text": "Revisamos qué faltó y acordamos cómo resolverlo.", "value": 3 },
+                        { "text": "Hacemos lo anterior y documentamos el cambio para próximos casos.", "value": 4 }
+                    ]
+                },
+                {
+                    "title": "Cómo defino éxito:",
+                    "options": [
+                        { "text": "Por mis entregas.", "value": 1 },
+                        { "text": "Por lo que vamos cerrando entre todos.", "value": 2 },
+                        { "text": "Por lo que logra el equipo vs. lo planificado.", "value": 3 },
+                        { "text": "Por impacto del equipo y cómo otros replican la forma de trabajar.", "value": 4 }
+                    ]
+                }
+            ]
+        },
+        {
+            "dimension": "Conversaciones por separado que suman valor",
+            "explanation": "Es el paso de charlas reactivas a espacios breves y regulares que clarifican expectativas y dejan acuerdos útiles.",
+            "idPrefix": "p2",
+            "questions": [
+                {
+                    "title": "Frecuencia de mis conversaciones:",
+                    "options": [
+                        { "text": "Solo cuando hay urgencia.", "value": 1 },
+                        { "text": "A veces, si el tiempo da.", "value": 2 },
+                        { "text": "Tenemos un momento breve fijo.", "value": 3 },
+                        { "text": "Momento fijo y registro breve compartido.", "value": 4 }
+                    ]
+                },
+                {
+                    "title": "Estilo de conversación:",
+                    "options": [
+                        { "text": "Doy indicaciones.", "value": 1 },
+                        { "text": "Escucho algo y recomiendo.", "value": 2 },
+                        { "text": "Pregunto, acordamos pasos y fecha.", "value": 3 },
+                        { "text": "Hacemos lo anterior y revisamos qué funcionó la vez pasada.", "value": 4 }
+                    ]
+                },
+                {
+                    "title": "Seguimiento:",
+                    "options": [
+                        { "text": "Depende de que me lo recuerden.", "value": 1 },
+                        { "text": "Reviso si me lo piden o cuando lo necesito.", "value": 2 },
+                        { "text": "Miro los acuerdos antes del día pactado.", "value": 3 },
+                        { "text": "Miro los acuerdos y pregunto si necesitan algo para cumplirlos.", "value": 4 }
+                    ]
+                }
+            ]
+        },
+        {
+            "dimension": "Preparar al equipo para lograr resultados",
+            "explanation": "Es el paso de encargar tareas sueltas a crear condiciones claras (para qué, éxito, roles y plan) que permiten avanzar sin fricción.",
+            "idPrefix": "p3",
+            "questions": [
+                {
+                    "title": "Al encargar trabajo:",
+                    "options": [
+                        { "text": "Digo lo que tienen que hacer.", "value": 1 },
+                        { "text": "Explico el contexto o el resultado (uno de los dos).", "value": 2 },
+                        { "text": "Acordamos propósito, resultado y límites.", "value": 3 },
+                        { "text": "Lo anterior y queda escrito en formato sencillo.", "value": 4 }
+                    ]
+                },
+                {
+                    "title": "Seguimiento de avances:",
+                    "options": [
+                        { "text": "Pregunto cuando me acuerdo.", "value": 1 },
+                        { "text": "Revisamos si hay problemas.", "value": 2 },
+                        { "text": "Revisamos en un espacio breve y regular.", "value": 3 },
+                        { "text": "Revisamos y actualizamos un tablero que todos ven.", "value": 4 }
+                    ]
+                },
+                {
+                    "title": "Riesgos y bloqueos:",
+                    "options": [
+                        { "text": "Los vemos cuando suceden.", "value": 1 },
+                        { "text": "Los anotamos al cierre.", "value": 2 },
+                        { "text": "Listamos riesgos y dueños temprano.", "value": 3 },
+                        { "text": "Activamos alternativas antes de que frenen el plan.", "value": 4 }
+                    ]
+                }
+            ]
+        },
+        {
+            "dimension": "Cultura de retroalimentación",
+            "explanation": "Es el paso de la cultura del error a la cultura del crecimiento sostenido",
+            "idPrefix": "p4",
+            "questions": [
+                {
+                    "title": "Pedir retroalimentación:",
+                    "options": [
+                        { "text": "Rara vez la pido.", "value": 1 },
+                        { "text": "La pido anualmente a través de encuestas.", "value": 2 },
+                        { "text": "La pido en momentos definidos de forma personal.", "value": 3 },
+                        { "text": "Lo anterior y muestro qué cambié con eso.", "value": 4 }
+                    ]
+                },
+                {
+                    "title": "Dar retroalimentación:",
+                    "options": [
+                        { "text": "Marco los errores en reuniones de equipo", "value": 1 },
+                        { "text": "Doy devoluciones privadas pero de manera genérica y tardía", "value": 2 },
+                        { "text": "Clara, a tiempo, en privado y evidenciando comportamientos observables.", "value": 3 },
+                        { "text": "Además, acordamos el comportamiento esperado a futuro", "value": 4 }
+                    ]
+                },
+                {
+                    "title": "Reconocer logros:",
+                    "options": [
+                        { "text": "Cuando me acuerdo.", "value": 1 },
+                        { "text": "De manera genérica a todo el equipo.", "value": 2 },
+                        { "text": "Con ejemplos concretos e individuales.", "value": 3 },
+                        { "text": "Lo hacemos visible para implementar buenas prácticas", "value": 4 }
+                    ]
+                }
+            ]
+        },
+        {
+            "dimension": "Liderar el cambio",
+            "explanation": "Es el paso de anunciar y empujar a guiar adopción con propósito claro, pruebas pequeñas, apoyos y ajustes tempranos.",
+            "idPrefix": "p5",
+            "questions": [
+                {
+                    "title": "Plan de cambio:",
+                    "options": [
+                        { "text": "Avanzamos sin plan.", "value": 1 },
+                        { "text": "Hacemos planes hablados pero que vamos cambiando en la marcha.", "value": 2 },
+                        { "text": "Plan simple con hitos y roles.", "value": 3 },
+                        { "text": "Plan claro, compartido, con calendario acordado y escenarios posibles (riesgos y supuestos)", "value": 4 }
+                    ]
+                },
+                {
+                    "title": "Adopción del cambio:",
+                    "options": [
+                        { "text": "Las dudas se resuelven en el momento por quien las trae y el plan sigue igual.", "value": 1 },
+                        { "text": "Reunimos preguntas y respondemos al cierre, los ajustes en la forma de trabajar quedan para más adelante.", "value": 2 },
+                        { "text": "Antes de que frenen el avance, visualizamos obstáculos repetidos y acordamos apoyos simples", "value": 3 },
+                        { "text": "Variamos apoyo y exigencias por grupo según señales de adopción, quitamos tareas que compiten con el cambio y celebramos avances pequeños mientras ajustamos la guía.", "value": 4 }
+                    ]
+                },
+                {
+                    "title": "Seguimiento:",
+                    "options": [
+                        { "text": "Sin seguimiento y el cambio retrocede o muchas veces no llega a implementarse", "value": 1 },
+                        { "text": "Seguimiento intermitente", "value": 2 },
+                        { "text": "Rutinas de seguimiento y soporte estable.", "value": 3 },
+                        { "text": "Rituales que aseguran mejora continua.", "value": 4 }
+                    ]
+                }
+            ]
+        },
+        {
+            "dimension": "Gestionar tiempo y energía",
+            "explanation": "Es el paso de vivir por urgencias a proteger prioridades y energía para sostener rendimiento sin desgaste",
+            "idPrefix": "p6",
+            "questions": [
+                {
+                    "title": "Prioridades del día:",
+                    "options": [
+                        { "text": "Me guío por lo que llega.", "value": 1 },
+                        { "text": "Intento ordenar, a veces cambia.", "value": 2 },
+                        { "text": "Bloques de tiempo protegidos para lo importante.", "value": 3 },
+                        { "text": "Agenda por prioridades y revisión semanal.", "value": 4 }
+                    ]
+                },
+                {
+                    "title": "Carga de trabajo:",
+                    "options": [
+                        { "text": "Suelo decir que sí a todo.", "value": 1 },
+                        { "text": "A veces digo que no.", "value": 2 },
+                        { "text": "Digo que no a lo de bajo valor y delego tareas acordes.", "value": 3 },
+                        { "text": "Delego de forma sostenida y mantengo lista ordenada por prioridad.", "value": 4 }
+                    ]
+                },
+                {
+                    "title": "Sobre cuidar mi energía:",
+                    "options": [
+                        { "text": "Descuido mi energía y no practico autocuidado (descansar, relajarse, comer bien).", "value": 1 },
+                        { "text": "Cuido mi energía de forma irregular.", "value": 2 },
+                        { "text": "Tengo rutinas de autocuidado", "value": 3 },
+                        { "text": "Mantengo hábitos estables de energía y promuevo prácticas saludables también en el equipo.", "value": 4 }
+                    ]
+                }
+            ]
+        },
+        {
+            "dimension": "Inteligencia emocional",
+            "explanation": "Es el paso de sostener la tensión a encuadrar, reparar a tiempo y acordar cómo seguir cuidando la relación y el trabajo.",
+            "idPrefix": "p7",
+            "questions": [
+                {
+                    "title": "Cuando una conversación sube de tono:",
+                    "options": [
+                        { "text": "Reacciono impulsivamente sin atender lo que estoy sintiendo", "value": 1 },
+                        { "text": "Hago una pausa breve y retomo mi punto principal. A veces identifico lo que estoy sintiendo, aunque me llega tarde y con poca claridad.", "value": 2 },
+                        { "text": "Marco que quiero entendernos y ajusto mi intervención (pido turno, bajo el ritmo) para seguir.", "value": 3 },
+                        { "text": "Digo en una frase cómo lo estoy viviendo y qué necesito para continuar; acordamos un modo simple de seguir (pausa, orden de palabra).", "value": 4 }
+                    ]
+                },
+                {
+                    "title": "Si noto que fui injusto o me excedí en la charla:",
+                    "options": [
+                        { "text": "Lo dejo pasar y sigo con el tema.", "value": 1 },
+                        { "text": "Aclaro que fue por la tensión del momento y continúo.", "value": 2 },
+                        { "text": "Reconozco lo específico y pregunto cómo reparar para seguir trabajando bien.", "value": 3 },
+                        { "text": "Reconozco sin excusas, ofrezco una acción concreta de reparación y confirmo que alcance antes de seguir.", "value": 4 }
+                    ]
+                },
+                {
+                    "title": "Después de una conversación tensa:",
+                    "options": [
+                        { "text": "Retomo tareas y evito volver al tema.", "value": 1 },
+                        { "text": "Espero a que baje la tensión y, si surge, lo converso más adelante.", "value": 2 },
+                        { "text": "Dejo por escrito un resumen breve de lo acordado y qué haré distinto.", "value": 3 },
+                        { "text": "Envío ese resumen y pido validar o ajustar; acordamos cómo veremos que la situación mejoró.", "value": 4 }
+                    ]
+                }
+            ]
+        }
     ];
-
+    
     const resultsData = {
+        "Mentalidad de líder": {
+            "Inicial": {
+                "comentario": "Mostrás compromiso y esfuerzo personal, pero el resultado se define por lo que hacés vos más que por lo que logra el equipo. Se activa el reflejo “si quiero que salga bien, lo hago yo” y la idea de que delegar demora más. Eso mantiene el día a día, pero limita el aprendizaje del equipo y refuerza la urgencia constante. Si no avanzás, seguirán los apagafuegos y la sensación de que todo pasa por vos.",
+                "senales": "Tareas que se frenan cuando no estás. Prioridades que cambian por urgencias. Acuerdos de palabra sin registro. Frases tipo “más rápido si lo hago yo”. Elegir tareas conocidas por sobre las importantes.",
+                "practicas": "Publicá cada lunes 3 prioridades del equipo con responsable y fecha. Encargá una tarea que hoy hacés vos, definiendo qué y para cuándo. Cerrá el viernes en 10 minutos qué se logró y qué pasa a la semana siguiente."
+            },
+            "En progreso": {
+                "comentario": "Ya aparecen momentos de coordinación y mirás más el avance del equipo. El riesgo es la intermitencia: bajo presión se vuelve a lo conocido, se confunde actividad con avance y se atiende primero lo que grita más fuerte. Si no avanzás, habrá retrabajos y dudas sobre prioridades.",
+                "senales": "Dudas que reaparecen. Cambios de último momento. Planes visibles para pocos o que nadie usa. Justificaciones como “no hay tiempo para explicarlo”. Avanzar en lo pedido primero, no en lo más valioso.",
+                "practicas": "Dejá por escrito un resumen semanal con 3 prioridades y responsables. Sumá un renglón para \"posibles equivocaciones sobre lo que pienso que va a pasar” y una forma simple de chequearlo. Cerrá la semana con una revisión"
+            },
+            "Sólido": {
+                "comentario": "El equipo entiende el para qué y avanza sin trabarse. El resultado ya se mide por impacto de equipo. Esto reduce urgencias y permite mejorar la forma de trabajar. Mantenerlo y compartirlo multiplica el efecto.",
+                "senales": "Prioridades visibles. Entregas que no dependen de tu presencia. Otros replican la forma de trabajo.",
+                "practicas": "Documentá en una página cómo priorizan y cierran. Generá un modelo en formato simple para que otros la usen por una semana y te den mejoras."
+            }
+        },
+        "Conversaciones por separado que suman valor": {
+            "Inicial": {
+                "comentario": "Las conversaciones aparecen en crisis o cuando queda tiempo. Sirven para apagar incendios, pero no previenen problemas ni generan acuerdos claros. Si no avanzás, los temas sensibles se acumulan y vuelven.",
+                "senales": "“Avisame si pasa algo” como norma. Tareas sin responsable. La misma charla repetida.",
+                "practicas": "Agendá 15 minutos con dos personas clave esta semana. Usá tres preguntas fijas: qué va bien, qué bloquea, qué acordamos con fecha. Dejá el acuerdo en tres líneas."
+            },
+            "En progreso": {
+                "comentario": "Existen espacios y se notan acuerdos más claros. El punto débil es el seguimiento irregular. Si no avanzás, dependerán de recordatorios y se perderán compromisos.",
+                "senales": "“Lo hablamos pero no quedó escrito”. Seguimientos tardíos.",
+                "practicas": "Sostené un encuentro breve quincenal. Cerrá siempre con qué, quién y para cuándo. Revisá esos acuerdos antes del día pactado."
+            },
+            "Sólido": {
+                "comentario": "Conversaciones breves y útiles que mejoran el trabajo y la relación. Se previenen desvíos y los pedidos de ayuda llegan a tiempo. Compartir lo que funciona ayuda a elevar el estándar del equipo.",
+                "senales": "Acuerdos claros antes de la crisis. Temas sensibles que se tratan a tiempo.",
+                "practicas": "Pedí una devolución sobre la utilidad del espacio y ajustá. Publicá en el equipo un listado modelo de preguntas que ya les sirve."
+            }
+        },
+        "Preparar al equipo para lograr resultados": {
+            "Inicial": {
+                "comentario": "Encargás trabajo con lo básico. Se avanza, pero con interpretaciones distintas y retrabajo. Si no avanzás, el plan seguirá en chats y cada uno entenderá algo distinto.",
+                "senales": "“No era esto”. Responsables difusos. Fechas que se mueven sin aviso.",
+                "practicas": "Para el próximo entregable, escribí en cuatro líneas: para qué, listo es, responsable, fecha. Mostralo al equipo en un lugar compartido."
+            },
+            "En progreso": {
+                "comentario": "Hay plan y seguimiento, a veces desactualizados. Se gana previsibilidad, pero se pierde trazabilidad cuando cambia el contexto. Si no avanzás, volverán las versiones múltiples y los malentendidos.",
+                "senales": "Plan parcial o duplicado. Fechas que cambian sin registro.",
+                "practicas": "Hacé una revisión semanal de 10 minutos. Marcá próximos pasos y resolvé un estado de bloqueo (trabas en el avance de las tareas) cuando corresponda."
+            },
+            "Sólido": {
+                "comentario": "El plan es claro, se actualiza y ayuda a decidir. Los próximos pasos son visibles y los bloqueos se tratan a tiempo. Mantenerlo simple facilita que otros lo adopten.",
+                "senales": "Menos sorpresas. Cambios registrados. Responsables claros por tarea.",
+                "practicas": "Probá que alguien del equipo lidere la actualización del tablero por una semana, comparta lo aprendido y proponga mejoras"
+            }
+        },
+        "Cultura de retroalimentación": {
+            "Inicial": {
+                "comentario": "La retroalimentación es esporádica y general. Ayuda poco a mejorar y el reconocimiento llega tarde. Si no avanzás, se repetirán errores y se desmotivarán buenos hábitos.",
+                "senales": "Devoluciones solo cuando algo salió mal. Reconocimientos vagos.",
+                "practicas": "Dale a alguien una devolución específica esta semana usando observar (lo que viste), impacto (lo que generó), propuesta (lograr acuerdo de como seguir). Reconocé un comportamiento concreto en público."
+            },
+            "En progreso": {
+                "comentario": "Las devoluciones son más claras y oportunas. Se ven ajustes, aunque el intercambio depende mucho del líder. Si no avanzás, el aprendizaje quedará concentrado y no circulará.",
+                "senales": "Pares que esperan bajada. Cambios que no se comparten.",
+                "practicas": "Pedí una devolución breve sobre tu trabajo y contá qué vas a cambiar. Proponé una ronda mensual de qué mantener y qué ajustar entre pares."
+            },
+            "Sólido": {
+                "comentario": "La retroalimentación mejora el trabajo y sostiene la motivación. Hay ejemplos concretos y cambios pequeños frecuentes. Compartir método y ejemplos acelera el progreso del equipo.",
+                "senales": "Devoluciones específicas. Reconocimientos vinculados a conductas.",
+                "practicas": "Publicá un guion simple de retroalimentación en el canal del equipo. Compartí un caso de antes y después que hayan logrado."
+            }
+        },
+        "Liderar el cambio": {
+            "Inicial": {
+                "comentario": "Los cambios se hacen sobre la marcha. Se avanza, pero con confusión y retornos a lo anterior. Si no avanzás, aumentarán las resistencias y la fatiga.",
+                "senales": "Roles difusos. Preguntas repetidas. Mensajes que se contradicen.",
+                "practicas": "Escribí en cinco líneas qué cambia, por qué, quién hace qué, primer hito y apoyo disponible. Compartilo con quienes impacta."
+            },
+            "En progreso": {
+                "comentario": "Ya hay plan y apoyos, a veces tardíos. La adopción empieza, pero pierde impulso si no se ajusta a cada grupo. Si no avanzás, convivirán distintas formas de trabajo por más tiempo del necesario.",
+                "senales": "Dudas que aparecen tarde. Grupos que avanzan a ritmos muy distintos.",
+                "practicas": "Hacé una prueba chica de dos semanas con un grupo. Ajustá el plan según lo que veas y contalo de forma simple."
+            },
+            "Sólido": {
+                "comentario": "El cambio se entiende, se prueba y se sostiene. Hay pasos claros, dudas atendidas y mejoras integradas. Convertir tu ruta en algo explicable ayuda a que otros la repliquen.",
+                "senales": "Señales de adopción visibles. Ajustes tempranos y concretos.",
+                "practicas": "Documentá en una página tu ruta de cambio con ejemplos. Presentala a un equipo aliado y recogé mejoras."
+            }
+        },
+        "Gestionar tiempo y energía": {
+            "Inicial": {
+                "comentario": "El día lo marcan urgencias y la energía queda al margen. Cumplís, pero con desgaste y variación en la calidad. Si no avanzás, aumentarán errores por cansancio y la sensación de estar siempre corriendo.",
+                "senales": "Cambios de foco constantes. Decir sí a todo. Pausas que se postergan.",
+                "practicas": "Hacé una lista diaria de tres prioridades. Trabajá un bloque de 45 minutos sin interrupciones y tomá una pausa de 5 minutos real."
+            },
+            "En progreso": {
+                "comentario": "Hay más orden y algunos bloques de tiempo protegidos. La calidad mejora, aunque aparecen picos y caídas. Si no avanzás, será difícil sostener el rendimiento sin sobrecarga.",
+                "senales": "Semanas con mucha carga seguidas de frenadas. Autocuidado intermitente.",
+                "practicas": "Reservá 30 minutos para planear la semana. Decí no a un pedido de bajo valor y delegá una tarea concreta."
+            },
+            "Sólido": {
+                "comentario": "Prioridades claras, bloques de concentración reales y energía cuidada. El trabajo fluye sin depender de horas extra. Convertir hábitos personales en acuerdos del equipo consolida el avance.",
+                "senales": "Menos urgencias. Mejor calidad sostenida.",
+                "practicas": "Convertí tres hábitos en acuerdos del equipo por dos semanas. Por ejemplo, bloques de foco, pausas y no mensajería fuera de horario. Ajustá lo que no funcione."
+            }
+        },
         "Inteligencia emocional": {
-            "Crítico": {
-                "comentario": "No identificar emociones propias ni ajenas puede llevar a reacciones impulsivas, conflictos no resueltos y pérdida de confianza en el equipo.",
-                "recomendacion": "Registre durante una semana momentos de tensión y cómo reaccionó, para detectar patrones y puntos de mejora.",
-                "preguntas": "¿Qué episodios recuerda en los que la falta de control emocional complicó la situación?"
+            "Inicial": {
+                "comentario": "Mostrás compromiso, pero muchas veces las emociones suelen gestionarte a vos más que vos a ellas. Predomina reaccionar en el momento, leer poco el clima y “seguir de largo” después de una tensión. Eso resuelve lo inmediato, aunque deja residuos en la relación y decisiones hechas desde el apuro. Avanzar implica reconocer lo que sentís, bajar el ritmo antes de responder y hacer pequeñas reparaciones a tiempo.",
+                "senales": "Respuestas impulsivas. Pensar en la conversación durante horas. Frases dichas “en caliente” y temas que quedan picando. Reuniones con silencios largos o cruces repetidos que nadie nombra.",
+                "practicas": "Practicá una pausa de 60–90 s antes de responder en temas sensibles. Cerrá conversaciones tensas con un “resumen espejo” de lo entendido. Si te excediste, reconocé lo específico y acordá una reparación simple (p. ej., retomar con otro tono o revisar el acuerdo por escrito)."
             },
-            "En desarrollo": {
-                "comentario": "Reconocer emociones solo de manera ocasional genera mensajes contradictorios y puede afectar la credibilidad del liderazgo.",
-                "recomendacion": "Practique una pausa de 2 minutos antes de reuniones para identificar su estado emocional y ajustarlo si es necesario y lleve un registro diario al cierre de la jornada por 1 semana.",
-                "preguntas": "¿Qué dos rituales breves podría adoptar para que la conciencia emocional sea más constante?"
-            },
-            "Sólido": {
-                "comentario": "Gestionar emociones de forma consistente refuerza la toma de decisiones y la comunicación, pero puede quedar limitado si no se conecta con el desarrollo de los demás. Aproveche su autocontrol para facilitar conversaciones difíciles.",
-                "recomendacion": "Dedique un espacio semanal a preguntar al equipo cómo se sienten frente a los desafíos actuales y escuche activamente sus respuestas y registre 1 acuerdo de cuidado del equipo.",
-                "preguntas": "¿Cómo podría usar su conciencia emocional para mejorar la empatía y colaboración en el equipo?"
-            },
-            "Excelente": {
-                "comentario": "Integrar la inteligencia emocional de forma natural transmite calma y claridad al equipo. Se nota en conversaciones exigentes bien encauzadas y en decisiones serenas; seguir expandiendo y enseñando estas prácticas como referencia del equipo.",
-                "recomendacion": "Participe en actividades de formación o feedback 360° anual centradas en inteligencia emocional para descubrir nuevas áreas de desarrollo.",
-                "preguntas": "¿Cómo se asegura de seguir expandiendo su inteligencia emocional en distintos contextos?"
-            }
-        },
-        "Comunicación y relaciones": {
-            "Crítico": {
-                "comentario": "No fomentar la comunicación ni cuidar las relaciones genera aislamiento, rumores y pérdida de coordinación dentro del equipo.",
-                "recomendacion": "Establezca un espacio semanal breve para compartir información clave y aclarar dudas del equipo.",
-                "preguntas": "¿Qué señales de desconexión o malentendidos ha notado recientemente en su entorno?"
-            },
-            "En desarrollo": {
-                "comentario": "Comunicar de manera ocasional o informal puede dar lugar a interpretaciones erróneas y relaciones superficiales.",
-                "recomendacion": "Defina un canal formal de comunicación (ej. grupo de trabajo o mailing) y normas básicas de uso; utilícelo de forma constante para mensajes relevantes.",
-                "preguntas": "¿Qué rutinas podría instaurar para asegurar claridad y continuidad en los vínculos?"
+            "En progreso": {
+                "comentario": "Ya aparecen pausas y más escucha. En general regulás mejor y leés señales del entorno, aunque bajo presión volvés a tus automatismos: explicar más, o evitar el tema para no escalar. El siguiente paso es sostener la consistencia y abrir espacio a la perspectiva del otro cuando tu primera lectura podría estar sesgada.",
+                "senales": "“Me frené, pero después seguí con lo mío”. Tensión que baja en la reunión y vuelve por chat. Preguntar poco cuando no coincidís. Malentendidos por tono o canal.",
+                "practicas": "En desacuerdos, usá la secuencia: reconocer emoción propia → pedir un ejemplo concreto → co‑definir próximo paso. Iniciá reuniones con un check‑in de 30″ por persona cuando haya temas sensibles. Al final, pedí a otro que resuma acuerdos para validar comprensión compartida."
             },
             "Sólido": {
-                "comentario": "Mantener una comunicación clara y relaciones fluidas fortalece la confianza y la colaboración, pero puede quedarse en lo operativo si no se profundiza en la escucha activa.",
-                "recomendacion": "Incorpore una práctica de “confirmación de entendimiento” pidiendo a su interlocutor resumir lo conversado en reuniones clave.",
-                "preguntas": "¿Cómo valida que sus mensajes son comprendidos y generan alineación?"
-            },
-            "Excelente": {
-                "comentario": "Construir relaciones sólidas y abiertas genera compromiso y cohesión. Sus mensajes llegan claros, los acuerdos quedan escritos y el vínculo se fortalece; mantener este estándar y compartirlo como buena práctica.",
-                "recomendacion": "Modele y documente buenas prácticas de comunicación para que otros líderes puedan replicarlas en sus equipos.",
-                "preguntas": "¿Cómo puede transferir estas habilidades comunicacionales al resto de la organización?"
-            }
-        },
-        "Dirección y delegación": {
-            "Crítico": {
-                "comentario": "No dar dirección ni delegar tareas provoca desorden, sobrecarga personal y dependencia excesiva del líder.",
-                "recomendacion": "Haga una lista de las tareas que realiza en solitario e identifique al menos una que pueda delegar esta semana, definiendo el resultado esperado y el criterio de “listo es…”.",
-                "preguntas": "¿En qué áreas nota que todo termina recayendo únicamente en usted?"
-            },
-            "En desarrollo": {
-                "comentario": "Dar dirección clara pero delegar de forma limitada puede generar microgestión y frenar la autonomía del equipo.",
-                "recomendacion": "Elija una tarea recurrente, delegue con instrucciones claras y defina un espacio de seguimiento en vez de control permanente, acordando hitos y criterios de calidad.",
-                "preguntas": "¿Qué tareas podría soltar de manera controlada para promover más iniciativa en otros?"
-            },
-            "Sólido": {
-                "comentario": "Direccionar con claridad y delegar consistentemente refuerza la eficiencia, pero puede caer en exceso de control si no se ajusta a cada persona.",
-                "recomendacion": "Adapte el nivel de supervisión al nivel de experiencia de cada persona, utilizando más guía con novatos y más confianza con experimentados, usando autonomía progresiva según experiencia y riesgo del entregable.",
-                "preguntas": "¿Cómo asegura que el nivel de autonomía entregado es adecuado para cada integrante del equipo?"
-            },
-            "Excelente": {
-                "comentario": "Combinar dirección estratégica con delegación madura desarrolla autonomía. Los resultados se logran con claridad de “qué y para cuándo” y con supervisión justa; documentar el modo de delegar para escalarlo.",
-                "recomendacion": "Documente un protocolo de delegación con pasos y criterios, y compártalo como guía en la organización, incluyendo plantillas de briefing, definición de resultados y calendario de hitos.",
-                "preguntas": "¿Cómo puede transferir este modelo de dirección y delegación a otros líderes?"
-            }
-        },
-        "Ejecución y resultados": {
-            "Crítico": {
-                "comentario": "No dar seguimiento ni asegurar resultados genera incumplimientos, pérdida de credibilidad y desgaste en el equipo.",
-                "recomendacion": "Elija un proyecto actual y defina un tablero simple con tarea, responsable y fecha (Excel, Trello o similar) para dar seguimiento a entregables y responsables. Haga una revisión semanal de 10 minutos.",
-                "preguntas": "¿Qué consecuencias ha observado cuando no se cumplen los compromisos asumidos?"
-            },
-            "En desarrollo": {
-                "comentario": "Cumplir parcialmente o de forma irregular mantiene avances, pero también genera retrasos y reprocesos.",
-                "recomendacion": "Establezca una reunión corta semanal enfocada en qué frena el avance. Antes de cada entrega use una lista de verificación de 5–7 puntos para evitar errores repetidos.",
-                "preguntas": "¿Qué mecanismos podría implementar para sostener la ejecución y reducir errores?"
-            },
-            "Sólido": {
-                "comentario": "Lograr resultados de manera constante refuerza la confianza del equipo y de la organización, pero puede llevar a conformismo.",
-                "recomendacion": "Defina indicadores de desempeño clave y revise trimestralmente con el equipo cómo superarlos, no solo cumplirlos.",
-                "preguntas": "¿Cómo puede elevar el estándar para que los resultados sean sobresalientes y sostenibles?"
-            },
-            "Excelente": {
-                "comentario": "Integrar planificación simple con seguimiento constante permite cumplir lo prometido. Se ven entregas a tiempo y menos retrabajos; convertir el método en formato breve para que otros lo repliquen.",
-                "recomendacion": "Diseñe una guía breve con buenas prácticas de planificación y control, y compártala como estándar interno.",
-                "preguntas": "¿Cómo puede documentar y replicar sus métodos de ejecución en otros equipos?"
-            }
-        },
-        "Pensamiento crítico y decisiones": {
-            "Crítico": {
-                "comentario": "Tomar decisiones sin análisis crítico suele basarse en la primera impresión o en lo que se quiere oír, lo que aumenta errores y pérdida de credibilidad. También genera errores y retrabajo innecesario.",
-                "recomendacion": "Antes de decidir, escriba 2 opciones y 1 contra de cada una. Si nota que falta un dato clave, frene y búsquelo antes de cerrar la decisión.",
-                "preguntas": "¿Qué ejemplos recuerda en los que actuar por impulso lo llevó a un resultado negativo? ¿Cuál fue el costo más claro?"
-            },
-            "En desarrollo": {
-                "comentario": "Analizar de forma esporádica ayuda, pero sin constancia se termina priorizando lo más reciente o lo más cómodo y quedan fuera datos relevantes.",
-                "recomendacion": "Busque 1 fuente adicional que confirme o desafíe su idea y comparta su conclusión con alguien no involucrado para que la cuestione, antes de decidir.",
-                "preguntas": "¿Qué herramientas podría aplicar para no basarse solo en recuerdos o percepciones inmediatas? ¿Qué hábito simple usará para sostener el análisis cada vez?"
-            },
-            "Sólido": {
-                "comentario": "Aplicar pensamiento crítico con regularidad mejora la calidad de las decisiones, aunque el equipo puede reforzar siempre la misma idea y no explorar alternativas.",
-                "recomendacion": "Designe a una persona para el rol de “quien objeta” en cada decisión importante: debe preguntar “¿y si estamos equivocados?” y proponer una alternativa. Rote ese rol en cada reunión.",
-                "preguntas": "¿Cómo puede fomentar que se cuestionen las ideas dominantes en el grupo?"
-            },
-            "Excelente": {
-                "comentario": "Decidir con análisis profundo y visión equilibrada entre datos y contexto demuestra criterio maduro. Explorar, validar supuestos y explicar el porqué consolidan la calidad; mantener este estándar enseñando el proceso al equipo.",
-                "recomendacion": "Elija 2 decisiones del último trimestre que no salieron bien. En 15 minutos con el equipo, anoten qué harían distinto y agreguen 1 paso nuevo a su lista de verificación para próximas decisiones.",
-                "preguntas": "¿Cómo puede asegurarse de seguir aprendiendo y no caer en la idea de que su proceso ya alcanza?"
-            }
-        },
-        "Aprendizaje e innovación": {
-            "Crítico": {
-                "comentario": "No fomentar el aprendizaje ni la generación de ideas nuevas deja al equipo en la repetición de lo conocido y se repiten errores.",
-                "recomendacion": "Programe una reunión simple de 15 minutos, una vez al mes. Cada persona comparte 1 aprendizaje y 1 idea. Elija 1 idea para probar la próxima semana y anótela en una lista compartida con responsable y fecha.",
-                "preguntas": "¿Qué consecuencias ha visto cuando el equipo repite prácticas sin cuestionarlas? ¿Qué práctica seguimos igual aunque ya no funciona?"
-            },
-            "En desarrollo": {
-                "comentario": "Impulsar aprendizajes o innovaciones de forma ocasional genera entusiasmo, pero al no sostenerse ni registrarse pierde impacto.",
-                "recomendacion": "Instale un espacio quincenal de 10 minutos. Rote quién presenta 1 mejora concreta. Registre todo en una hoja compartida e indique quién hace qué y para cuándo. Revise al inicio del siguiente encuentro qué se probó y qué resultó.",
-                "preguntas": "¿Qué rutinas podría instalar para que el aprendizaje sea constante y no solo eventual? ¿Quién será el dueño de llevarlas?"
-            },
-            "Sólido": {
-                "comentario": "Promover aprendizajes e innovaciones de forma consistente fortalece la adaptación, pero puede quedarse en mejoras menores y no abrir espacio a ideas distintas.",
-                "recomendacion": "Haga un taller trimestral de 45–60 minutos. Use la regla de “1 idea loca por persona”. Seleccionen 1 experimento sencillo para testear en 2 semanas, con dueño, pasos y fecha de revisión.",
-                "preguntas": "¿Cómo puede alentar propuestas más arriesgadas y transformadoras sin perder el control?"
-            },
-            "Excelente": {
-                "comentario": "Instalar el aprendizaje continuo y convertir ideas en mejoras reales consolida al equipo como motor de mejora. Registrar lo aprendido, probar con experimentos simples y difundir lo que funciona; seguir alimentando el repositorio para inspirar a otros.",
-                "recomendacion": "Cree un repositorio simple (carpeta o documento) con fichas breves: problema, idea, cómo se probó, qué pasó, recomendación. Asigne responsables y una fecha de actualización para que el contenido no caduque.",
-                "preguntas": "¿Cómo puede asegurar que los aprendizajes e innovaciones queden disponibles para otros y perduren más allá de su gestión?"
-            }
-        },
-        "Propósito y ética": {
-            "Crítico": {
-                "comentario": "Actuar sin un propósito claro ni criterios éticos definidos puede generar decisiones contradictorias, pérdida de confianza y percepción de incoherencia. Tomar atajos a corto plazo también daña la reputación.",
-                "recomendacion": "Escriba en una frase el propósito central de su rol y úselo como filtro antes de decidir. Agregue 2–3 “no haré” que no va a cruzar y léalos antes de cerrar decisiones.",
-                "preguntas": "¿En qué situaciones ha sentido que actuó más por presión externa que por convicción personal? ¿Cuándo dijo “sí” a algo que iba contra lo que considera correcto?"
-            },
-            "En desarrollo": {
-                "comentario": "Tener claridad parcial sobre propósito y ética ayuda, pero la falta de coherencia puede generar dudas en el equipo y afectar el compromiso. La incoherencia se nota en lo cotidiano.",
-                "recomendacion": "Identifique un valor clave y comparta con el equipo cómo espera vivirlo en la práctica diaria. Defina 2 conductas visibles que muestren ese valor y pida que se las recuerden si se aparta.",
-                "preguntas": "¿Qué valores le resultan más difíciles de sostener en contextos de presión? ¿Por qué?"
-            },
-            "Sólido": {
-                "comentario": "Actuar con propósito y ética de forma consistente refuerza la confianza, pero puede quedar en eslogan si no baja a prácticas diarias.",
-                "recomendacion": "Incluya en las reuniones un espacio para reconocer ejemplos de comportamientos que reflejen los valores del equipo. Cierre cada reunión destacando 1 conducta alineada y anotando 1 mejora concreta para la próxima.",
-                "preguntas": "¿Cómo asegura que sus valores se traduzcan en prácticas concretas y no solo en declaraciones? ¿Cómo verifica que sus decisiones del día a día respetan esos valores?"
-            },
-            "Excelente": {
-                "comentario": "Actuar con propósito claro y principios visibles en el día a día refuerza la legitimidad del liderazgo. Se percibe coherencia entre lo que dice y hace; seguir haciéndolo explícito con ejemplos que guíen a otros en dilemas.",
-                "recomendacion": "¿Qué método dejará para que otros decidan con los mismos principios?",
-                "preguntas": "¿Cómo puede garantizar que el propósito y la ética no dependan solo de su liderazgo?"
-            }
-        },
-        "Cambio y mejora": {
-            "Crítico": {
-                "comentario": "Resistirse al cambio o no gestionar la transición hace que el equipo siga igual o vuelva a lo de antes, con pérdida de tiempo y motivación.",
-                "recomendacion": "Elija 1 proceso que hoy no funciona. Haga una prueba corta de 2 semanas con un cambio simple. Defina qué debería mejorar y cómo lo medirá. Si no mejora, vuelva atrás sin culpa y pruebe otra alternativa.",
-                "preguntas": "¿Qué consecuencia vio cuando se intentó cambiar algo y se volvió a la forma anterior?"
-            },
-            "En desarrollo": {
-                "comentario": "Hacer cambios sueltos sin seguimiento genera avances que se diluyen y se pierden.",
-                "recomendacion": "Use un registro simple (lista compartida) con: cambio, responsable y fecha. Haga una revisión mensual de 10 minutos para ver qué siguió, qué se frenó y qué ayuda hace falta para sostenerlo.",
-                "preguntas": "¿Qué impide dar seguimiento a los cambios iniciados y verificar si funcionaron?"
-            },
-            "Sólido": {
-                "comentario": "Impulsar mejoras constantes ayuda, pero puede quedarse en retoques y no abordar cuando ya no alcanza con ajustes.",
-                "recomendacion": "Cada 6 meses, revise con el equipo 2–3 procesos clave. Si un problema reaparece, proponga un rediseño completo: pasos, responsables y fecha de prueba, con criterios de éxito claros.",
-                "preguntas": "¿Cómo decide que es momento de pasar de una mejora puntual a un rediseño más grande?"
-            },
-            "Excelente": {
-                "comentario": "Conducir cambios como práctica habitual y lograr adopción sin fricción evidencia madurez de transformación. Definir por qué cambiar, probar en pequeño y consolidar lo que sirve; mantener el modelo y enseñarlo como ruta de cambio.",
-                "recomendacion": "Defina un método simple y visible en una página: 1) diagnóstico, 2) prueba, 3) evaluación, 4) despliegue. Enséñelo al equipo y dé ejemplos reales. Asigne roles y ponga fechas para practicarlo.",
-                "preguntas": "¿Cómo hará para que el equipo pueda gestionar cambios sin depender de usted?"
-            }
-        },
-        "Productividad y energía": {
-            "Crítico": {
-                "comentario": "No organizar la energía ni gestionar el tiempo provoca desgaste, acumulación de pendientes, pérdida de foco y errores por trabajar cansado.",
-                "recomendacion": "Haga una lista diaria de 3 prioridades. Trabaje en bloques de 45’ con pausas de 5’ y apague notificaciones durante ese bloque. Al cierre del día marque qué quedó sin hacer y por qué, para reprogramarlo.",
-                "preguntas": "¿Qué señales físicas o emocionales le muestran que usted o su equipo están al borde del agotamiento? ¿Cuáles son las tres más frecuentes?"
-            },
-            "En desarrollo": {
-                "comentario": "Mantener productividad sin constancia genera picos de esfuerzo y caídas que afectan calidad y ánimo.",
-                "recomendacion": "Bloquee en agenda dos franjas fijas para tareas críticas. Programe una pausa diaria con recordatorio. Defina “hora sin reuniones” para el equipo y respétela.",
-                "preguntas": "¿Qué rutinas podría implementar para sostener el ritmo sin depender solo de la urgencia? ¿Qué dos hábitos sostendrá cada semana?"
-            },
-            "Sólido": {
-                "comentario": "Organizar bien energía y tiempo permite resultados consistentes, pero puede llevar a sobrecarga del equipo si todo se vuelve “urgente”.",
-                "recomendacion": "Use un semáforo semanal de carga por persona (verde ≤80%, amarillo 80–100%, rojo >100%). Redistribuya cuando vea rojo. Limite el trabajo en curso a 2–3 tareas por persona.",
-                "preguntas": "¿Cómo detecta exceso de carga antes de que sea tarde?"
-            },
-            "Excelente": {
-                "comentario": "Sostener un ritmo saludable con foco y pausas que cuidan al equipo mantiene el rendimiento sin desgaste. Priorizar lo importante, limitar interrupciones y equilibrar cargas; convertir estos hábitos en acuerdos escritos para preservarlos.",
-                "recomendacion": "Convierta hábitos en acuerdos escritos: 3–5 reglas simples (horarios, bloques de foco sin interrupciones, pausas, no chats fuera de horario). Revise cada 2 meses y ajuste. Reconozca su cumplimiento.",
-                "preguntas": "¿Qué prácticas quiere dejar como estándar del equipo?"
+                "comentario": "Mostrás autoconsciencia, regulás en calor y cuidás el vínculo sin perder foco. Anticipás tensiones, las encuadrás y facilitás acuerdos claros. Esto habilita conversaciones difíciles más cortas, decisiones más serenas y relaciones que se fortalecen con el tiempo. Mantenerlo pide modelar reparación rápida y enseñar el “cómo” al equipo.",
+                "senales": "Escalada rara vez necesaria. Diferencias tratadas temprano y con respeto. Las personas buscan tu encuadre cuando el tema es delicado.",
+                "practicas": "Modelá el guion breve en charlas complejas: “lo que veo/lo que siento/lo que necesito/qué proponés”. Rotá un “guardabosque del clima” en reuniones para señalar tensiones y proponer una pausa o cambio de turno cuando haga falta."
             }
         }
     };
-
+    
     const globalResultsData = {
-        "Crítico": "El perfil global muestra brechas que hoy afectan coordinación y confianza. Se traducen en retrabajos, decisiones apuradas y mensajes que llegan tarde. Señales: tareas trabadas más de un día, reuniones sin acuerdos y entregas que vuelven para corregir. Prioridad: estabilizar la base con un seguimiento semanal simple y conversaciones breves, por separado, con cada integrante para aclarar expectativas. En dos semanas debería bajar el “último momento” y quedar claro quién hace qué y para cuándo.",
-        "En desarrollo": "Perfil en desarrollo con algunos avances puntuales. Se logran entregas cuando la tarea está bien delimitada, pero el liderazgo sigue básico y dependiente de instrucciones cercanas. Los avances son frágiles: hay cambios de última hora, correcciones repetidas, metas sin fecha y mensajes que no llegan a todos. Siguiente paso: fijar un control semanal de 10 minutos, usar una lista de verificación de 5 puntos antes de entregar, dejar acuerdos por escrito con responsable y fecha, y registrar en una hoja compartida qué se probó y qué funcionó. Meta a 30 días: menos reprocesos y cumplimiento de ≥80% de fechas comprometidas.",
-        "Sólido": "Perfil sólido con resultados consistentes. Entregas a tiempo, menos correcciones, reuniones que cierran con acuerdos y vínculos de trabajo sanos. Hay orden, prioridades claras y seguimiento regular. Se delega con criterio y el equipo responde. El aprendizaje se usa para mejorar procesos y ya se notan impactos. Riesgo: acomodarse y que lo operativo tape lo estratégico; repetir fórmulas y quedarse en mejoras pequeñas. Próximo paso: subir el estándar. Definir un KPI faro por proyecto, nombrar en cada reunión a quien cuestione supuestos, documentar el “cómo trabajamos” y compartirlo. Meta del trimestre: lograr que otro equipo replique un resultado con la misma calidad.",
-        "Excelente": "El perfil evidencia liderazgo de alto desempeño: resultados sostenidos, entregas a tiempo, menos retrabajos, decisiones claras, comunicación abierta y un clima de confianza que impulsa la colaboración. Se observa un ritmo de trabajo ordenado, prioridades bien definidas, delegación que desarrolla autonomía y mejoras que elevan el estándar del equipo y la experiencia de usuarios/clientes. Además, el aprendizaje se pone en práctica y se traduce en prácticas efectivas que ya generan impacto. Próximo paso natural: multiplicar estos logros compartiendo las prácticas en guías simples y acompañando a otros equipos para que alcancen el mismo nivel."
+        "Inicial": "Tu resultado refleja que el liderazgo todavía se apoya más en el esfuerzo personal que en la construcción de un trabajo sostenido con el equipo. Esto no significa falta de compromiso, sino que las prácticas aún no logran instalarse como hábitos compartidos. La tendencia a resolver por cuenta propia o priorizar lo urgente por sobre lo importante asegura que las cosas salgan en el corto plazo, pero deja poco espacio para el aprendizaje colectivo y la innovación. Este nivel es propio de lidergos en transición, donde predomina la intuición y la reacción frente a problemas inmediatos. Avanzar significa empezar a dar visibilidad a lo que se espera, explicitar acuerdos y animarse a delegar aunque al principio parezca más lento. Cada pequeño paso en esa dirección abre la puerta a resultados más sostenidos y a un equipo que aprende a trabajar con autonomía.",
+        "En desarrollo": "El resultado muestra que ya hay avances significativos: aparecen rutinas de coordinación, mayor claridad en los planes y momentos de retroalimentación. El equipo empieza a organizarse de forma más ordenada, aunque todavía de manera muy intermitente o dependiente de las personas individuales. El riesgo en este punto es caer en la confusión entre “estar muy ocupado” y “avanzar en lo importante”. Cuando la presión aumenta, es común volver a prácticas anteriores, delegando menos o resolviendo en base a intuiciones. Este nivel refleja un liderazgo en camino de consolidarse, pero que necesita consistencia para no depender de picos de esfuerzo. Profundizar en este estadio significa mantener la disciplina de revisar lo acordado, registrar cambios y asegurarse de que todos comprendan el propósito de las tareas. Es un momento clave para transformar prácticas esporádicas en hábitos estables que sostengan al equipo incluso en contextos de mayor presión.",
+        "Sólido": "Este puntaje refleja un liderazgo que ha logrado consolidar prácticas efectivas y sostenidas en el tiempo. El equipo entiende el propósito de lo que hace, los resultados no dependen exclusivamente de la figura del líder y las rutinas de planificación, seguimiento y mejora ya forman parte del día a día. Estar en este nivel significa haber pasado de un liderazgo centrado en “resolver” a uno orientado en “desarrollar” y “multiplicar”. Los logros del equipo muestran autonomía, previsibilidad y capacidad de adaptación frente a cambios o desafíos. El desafío ahora no es instalar lo básico, sino evitar la complacencia: continuar cuestionando supuestos, buscando innovación y compartiendo con otros lo que funciona. Este nivel permite no solo sostener resultados, sino también convertirse en referente y motor de mejora para otros equipos u organizaciones."
     };
-    
-    // El resto del código de lógica no necesita cambios
-    
+
+    const totalQuestions = questionsData.reduce((acc, dim) => acc + dim.questions.length, 0);
+
     const normalizeString = (str) => {
         return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
     };
 
-    const shuffleArray = (array) => {
-        for (let i = array.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]];
+    const updateProgress = () => {
+        const checkedRadios = document.querySelectorAll('input[type="radio"]:checked').length;
+        const progressIndicator = document.getElementById('progress-indicator');
+        const progressBar = document.getElementById('progress-bar');
+        
+        if (progressIndicator) {
+            progressIndicator.textContent = `Avance ${checkedRadios} / ${totalQuestions}`;
         }
-        return array;
+        if (progressBar) {
+            const percentage = (checkedRadios / totalQuestions) * 100;
+            progressBar.style.width = percentage + '%';
+        }
     };
 
     const renderQuestions = () => {
         const container = document.getElementById('questions-container');
         let html = '';
 
-        questionsData.forEach((dimension, dimIndex) => {
-            const dimensionId = `results-${dimension.dimension.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, '-')}`;
+        questionsData.forEach((dimension) => {
+            const dimensionId = `results-${normalizeString(dimension.dimension).replace(/\s+/g, '-')}`;
             
             html += `<div class="category">`;
-            html += `<h2>${dimIndex + 1}. ${dimension.dimension}</h2>`;
+            html += `<h2>${dimension.dimension}</h2>`;
+            html += `<p class="dimension-explanation">${dimension.explanation}</p>`;
 
             dimension.questions.forEach((question, qIndex) => {
                 const questionName = `${dimension.idPrefix}-q${qIndex + 1}`;
@@ -538,9 +406,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 html += `<p>${question.title}</p>`;
                 html += `<div class="options">`;
 
-                const shuffledOptions = shuffleArray([...question.options]);
-
-                shuffledOptions.forEach(option => {
+                question.options.forEach(option => {
                     html += `<label><input type="radio" name="${questionName}" value="${option.value}">${option.text}</label>`;
                 });
 
@@ -548,103 +414,89 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             html += `</div>`;
-            html += `<div id="${dimensionId}" class="dimension-results"></div>`;
+            html += `<div id="${dimensionId}" class="dimension-results" style="display: none;"></div>`;
         });
 
         container.innerHTML = html;
     };
 
-    const calculatePartialScore = (dimension) => {
-        const questions = document.querySelectorAll(`input[name^="${dimension}-"]`);
+    const calculatePartialScore = (dimensionPrefix) => {
+        const questions = document.querySelectorAll(`input[name^="${dimensionPrefix}-"]`);
         let totalScore = 0;
+        let answeredCount = 0;
         
         const questionGroups = {};
         questions.forEach(q => {
             if (!questionGroups[q.name]) {
-                questionGroups[q.name] = false;
+                questionGroups[q.name] = 0;
             }
-            if(q.checked) {
-                questionGroups[q.name] = true;
+            if (q.checked) {
+                questionGroups[q.name] = 1;
                 totalScore += parseInt(q.value);
             }
         });
+        
+        answeredCount = Object.values(questionGroups).reduce((a, b) => a + b, 0);
 
-        const answeredQuestions = Object.values(questionGroups).filter(Boolean).length;
-        const totalQuestionsInDim = Object.keys(questionGroups).length;
+        const dimensionData = questionsData.find(d => d.idPrefix === dimensionPrefix);
+        if (!dimensionData || answeredCount < dimensionData.questions.length) {
+            return; 
+        }
 
-        if (answeredQuestions === totalQuestionsInDim && answeredQuestions > 0) {
-            const averageScore = totalScore / totalQuestionsInDim;
-            let nivel = "";
-            if (averageScore >= 1 && averageScore < 2) { nivel = "Crítico"; }
-            else if (averageScore >= 2 && averageScore < 3) { nivel = "En desarrollo"; }
-            else if (averageScore >= 3 && averageScore < 4) { nivel = "Sólido"; }
-            else if (averageScore >= 4) { nivel = "Excelente"; }
+        let nivel = "";
+        if (totalScore >= 3 && totalScore <= 6) { nivel = "Inicial"; }
+        else if (totalScore >= 7 && totalScore <= 10) { nivel = "En progreso"; }
+        else if (totalScore >= 11 && totalScore <= 12) { nivel = "Sólido"; }
 
-            const dimensionData = questionsData.find(d => d.idPrefix === dimension);
-            const dimensionName = dimensionData ? dimensionData.dimension : "";
+        const dimensionName = dimensionData.dimension;
+        const dimensionId = `results-${normalizeString(dimensionName).replace(/\s+/g, '-')}`;
+        const dimensionResultDiv = document.getElementById(dimensionId);
+
+        if (dimensionResultDiv && resultsData[dimensionName] && resultsData[dimensionName][nivel]) {
+            const data = resultsData[dimensionName][nivel];
+            const normalizedNivel = normalizeString(nivel).toLowerCase().replace(/\s/g, '-');
             
-            const dimensionId = `results-${dimensionName.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, '-')}`;
-            const dimensionResultDiv = document.getElementById(dimensionId);
-
-            if (dimensionResultDiv && resultsData[dimensionName] && resultsData[dimensionName][nivel]) {
-                const data = resultsData[dimensionName][nivel];
-                const normalizedNivel = normalizeString(nivel).toLowerCase().replace(' ', '-');
-                dimensionResultDiv.innerHTML = `
-                    <p class="dimension-score"><strong>Resultado:</strong> ${nivel}</p>
-                    <p><strong>Comentario:</strong> ${data.comentario}</p>
-                    <p><strong>Recomendación:</strong> ${data.recomendacion}</p>
-                    <p><strong>Preguntas para reflexionar:</strong> ${data.preguntas}</p>
-                `;
-                dimensionResultDiv.className = `dimension-results level-${normalizedNivel}`;
-            }
+            dimensionResultDiv.innerHTML = `
+                <p class="result-level-title"><strong>Resultado del nivel: <span class="level-text-${normalizedNivel}">${nivel}</span></strong></p>
+                <p><strong>Comentario:</strong> ${data.comentario}</p>
+                <p><strong>Señales a vigilar:</strong> ${data.senales}</p>
+                <p><strong>Prácticas a implementar:</strong> ${data.practicas}</p>
+            `;
+            dimensionResultDiv.className = `dimension-results level-${normalizedNivel}`;
+            dimensionResultDiv.style.display = 'block';
         }
     };
     
     const addEventListenersToQuestions = () => {
-        const allDimensions = questionsData.map(d => d.idPrefix);
-        allDimensions.forEach(dim => {
-            const questionsInDim = document.querySelectorAll(`input[name^="${dim}-"]`);
-            questionsInDim.forEach(question => {
-                question.addEventListener('change', () => calculatePartialScore(dim));
+        const allRadios = document.querySelectorAll('input[type="radio"]');
+        allRadios.forEach(radio => {
+            radio.addEventListener('change', () => {
+                const dimensionPrefix = radio.name.split('-')[0];
+                calculatePartialScore(dimensionPrefix);
+                updateProgress();
             });
         });
     };
 
     const generateResultsChart = (scores) => {
         const ctx = document.getElementById('resultsChart').getContext('2d');
-        const labels = [];
-        const dataPoints = [];
-        const backgroundColors = [];
+        const labels = Object.values(scores).map(s => s.name);
+        const dataPoints = Object.values(scores).map(s => s.score);
         
-        const colors = {
-            critico: 'rgba(231, 76, 60, 0.6)',
-            enDesarrollo: 'rgba(241, 196, 15, 0.6)',
-            solido: 'rgba(46, 204, 113, 0.6)',
-            excelente: 'rgba(0, 123, 255, 0.6)'
-        };
+        const backgroundColors = dataPoints.map(score => {
+            if (score >= 3 && score <= 6) return 'rgba(231, 76, 60, 0.6)'; // Inicial
+            if (score >= 7 && score <= 10) return 'rgba(241, 196, 15, 0.6)'; // En progreso
+            if (score >= 11 && score <= 12) return 'rgba(46, 204, 113, 0.6)'; // Sólido
+            return 'rgba(201, 203, 207, 0.6)';
+        });
 
-        for (const dimKey in scores) {
-            const score = scores[dimKey].average;
-            const dimensionName = scores[dimKey].name;
-            labels.push(dimensionName);
-            dataPoints.push(score);
-
-            if (score >= 1 && score < 2) { backgroundColors.push(colors.critico); }
-            else if (score >= 2 && score < 3) { backgroundColors.push(colors.enDesarrollo); }
-            else if (score >= 3 && score < 4) { backgroundColors.push(colors.solido); }
-            else if (score >= 4) { backgroundColors.push(colors.excelente); }
-        }
-        
         const isMobile = window.innerWidth < 768;
-        const axis = isMobile ? 'y' : 'x';
-        const chartType = 'bar';
-
         new Chart(ctx, {
-            type: chartType,
+            type: 'bar',
             data: {
                 labels: labels,
                 datasets: [{
-                    label: 'Promedio de Resultados',
+                    label: 'Puntaje por Práctica',
                     data: dataPoints,
                     backgroundColor: backgroundColors,
                     borderColor: backgroundColors,
@@ -652,22 +504,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 }]
             },
             options: {
-                indexAxis: axis,
+                indexAxis: isMobile ? 'y' : 'x',
                 responsive: true,
                 maintainAspectRatio: false,
                 scales: {
-                    [axis]: { ticks: { color: '#333' } },
                     [isMobile ? 'x' : 'y']: {
                         beginAtZero: true,
-                        max: 4,
-                        ticks: { color: '#333', stepSize: 1 }
+                        max: 12,
+                        ticks: { color: '#333', stepSize: 3 }
                     }
                 },
                 plugins: {
                     legend: { display: false },
                     title: {
                         display: true,
-                        text: 'Resumen Gráfico de Resultados por Dimensión',
+                        text: 'Resumen Gráfico de Resultados por Práctica',
                         font: { size: 18 },
                         color: '#333'
                     }
@@ -678,12 +529,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.getElementById('calculateScore').addEventListener('click', () => {
         const finalResultsContainer = document.getElementById('final-results-container');
-        finalResultsContainer.innerHTML = '';
-        
-        const totalQuestions = questionsData.reduce((acc, dim) => acc + dim.questions.length, 0);
         const allAnsweredRadios = document.querySelectorAll('input[type="radio"]:checked');
+        
         if (allAnsweredRadios.length < totalQuestions) {
-            alert("Por favor, responde todas las preguntas para ver los resultados totales.");
+            alert(`Por favor, responde todas las ${totalQuestions} preguntas para ver los resultados totales.`);
             return;
         }
 
@@ -693,55 +542,53 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         let globalNivel = "";
-        // Ajustando los rangos a las 9 dimensiones x 3 preguntas = 27 preguntas totales
-        // Rango de puntos: 27*1=27 a 27*4=108
-        if (totalGlobalScore >= 27 && totalGlobalScore <= 47) { globalNivel = "Crítico"; }
-        else if (totalGlobalScore >= 48 && totalGlobalScore <= 71) { globalNivel = "En desarrollo"; }
-        else if (totalGlobalScore >= 72 && totalGlobalScore <= 95) { globalNivel = "Sólido"; }
-        else if (totalGlobalScore >= 96 && totalGlobalScore <= 108) { globalNivel = "Excelente"; }
+        if (totalGlobalScore >= 21 && totalGlobalScore <= 52) { globalNivel = "Inicial"; }
+        else if (totalGlobalScore >= 53 && totalGlobalScore <= 73) { globalNivel = "En desarrollo"; }
+        else if (totalGlobalScore >= 74 && totalGlobalScore <= 84) { globalNivel = "Sólido"; }
         
         const globalComentario = globalResultsData[globalNivel];
-        const normalizedGlobalNivel = normalizeString(globalNivel).toLowerCase().replace(' ', '-');
+        const normalizedGlobalNivel = normalizeString(globalNivel).toLowerCase().replace(/\s/g, '-');
 
         let finalHtml = `<h2>Resultados Totales</h2>`;
         finalHtml += `
             <div class="global-result-comment">
                 <h3>Tu Perfil de Liderazgo General: <span class="level-${normalizedGlobalNivel}-text">${globalNivel}</span></h3>
+                <p><strong>Puntaje Total: ${totalGlobalScore} de 84</strong></p>
                 <p>${globalComentario}</p>
             </div>
         `;
         finalHtml += `<div class="chart-container"><canvas id="resultsChart"></canvas></div>`;
         
         let scoresForChart = {};
-        
         questionsData.forEach(dim => {
             let totalScore = 0;
-            const questionsInDim = document.querySelectorAll(`input[name^="${dim.idPrefix}-"]:checked`);
-            questionsInDim.forEach(q => totalScore += parseInt(q.value));
-            
-            const averageScore = totalScore / dim.questions.length;
-            scoresForChart[dim.idPrefix] = { average: averageScore, name: dim.dimension };
+            document.querySelectorAll(`input[name^="${dim.idPrefix}-"]:checked`).forEach(q => {
+                totalScore += parseInt(q.value);
+            });
+            scoresForChart[dim.idPrefix] = { score: totalScore, name: dim.dimension };
         });
 
+        // Hide individual dimension results now shown in the final summary
+        document.querySelectorAll('.dimension-results').forEach(el => el.style.display = 'none');
+        
         for (const dimPrefix in scoresForChart) {
-            const dimName = scoresForChart[dimPrefix].name;
-            const avgScore = scoresForChart[dimPrefix].average;
+            const dimensionData = questionsData.find(d => d.idPrefix === dimPrefix);
+            const { score, name: dimName } = scoresForChart[dimPrefix];
             
             let nivel = "";
-            if (avgScore >= 1 && avgScore < 2) { nivel = "Crítico"; }
-            else if (avgScore >= 2 && avgScore < 3) { nivel = "En desarrollo"; }
-            else if (avgScore >= 3 && avgScore < 4) { nivel = "Sólido"; }
-            else if (avgScore >= 4) { nivel = "Excelente"; }
+            if (score >= 3 && score <= 6) { nivel = "Inicial"; }
+            else if (score >= 7 && score <= 10) { nivel = "En progreso"; }
+            else if (score >= 11 && score <= 12) { nivel = "Sólido"; }
 
             const data = resultsData[dimName][nivel];
-            const normalizedNivel = normalizeString(nivel).toLowerCase().replace(' ', '-');
+            const normalizedNivel = normalizeString(nivel).toLowerCase().replace(/\s/g, '-');
             
             finalHtml += `
                 <div class="dimension-comment level-${normalizedNivel}">
-                    <h3>${dimName} - ${nivel}</h3>
+                    <h3>${dimName} - ${nivel} (Puntaje: ${score})</h3>
                     <p><strong>Comentario:</strong> ${data.comentario}</p>
-                    <p><strong>Recomendación:</strong> ${data.recomendacion}</p>
-                    <p><strong>Preguntas para reflexionar:</strong> ${data.preguntas}</p>
+                    <p><strong>Señales a vigilar:</strong> ${data.senales}</p>
+                    <p><strong>Prácticas a implementar:</strong> ${data.practicas}</p>
                 </div>
             `;
         }
@@ -753,4 +600,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     renderQuestions();
     addEventListenersToQuestions();
+    updateProgress(); // Initialize progress bar at 0
 });
