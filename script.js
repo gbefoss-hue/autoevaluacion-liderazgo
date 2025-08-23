@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "title": "Al empezar la semana, respecto a prioridades del equipo:",
                     "options": [
                         { "text": "Ordeno mis tareas personales.", "value": 1 },
-                        { "text": "Comparto lo que haré y pido avances cuando surja.", "value": 2 },
+                        { "text": "Comparto lo que haré.", "value": 2 },
                         { "text": "Acordamos prioridades breves con responsables y fechas.", "value": 3 },
                         { "text": "Acordamos prioridades y dejamos un resumen compartido para todos.", "value": 4 }
                     ]
@@ -225,7 +225,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         { "text": "Lo dejo pasar y sigo con el tema.", "value": 1 },
                         { "text": "Aclaro que fue por la tensión del momento y continúo.", "value": 2 },
                         { "text": "Reconozco lo específico y pregunto cómo reparar para seguir trabajando bien.", "value": 3 },
-                        { "text": "Reconozco sin excusas, ofrezco una acción concreta de reparación y confirmo que alcance antes de seguir.", "value": 4 }
+                        { "text": "Reconozco sin excusas, ofrezco una acción concreta de reparación y confirmo acuerdo antes de seguir.", "value": 4 }
                     ]
                 },
                 {
